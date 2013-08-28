@@ -11,21 +11,21 @@ public:
     explicit ScreenHome2(QWidget *parent = 0);
 
 private:
-    QString surface;
+    int     surface;
     QString direction;
-    QString angle;
+    int     angle;
 
 public:
-    double  getSurface();
+    int     getSurface();
     QString getDirection();
     int     getAngle();
 
 signals:
 
 public slots:
-    void setSurface(QString _new);
+    void setSurface(int _new);
     void setDirection(QString _new);
-    void setAngle(QString _new);
+    void setAngle(int _new);
 };
 
 #endif // SCREENHOME2_H

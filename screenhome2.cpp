@@ -5,23 +5,34 @@
 #include <QSpinBox>
 #include <QDoubleSpinBox>
 #include <QCheckBox>
+#include <QComboBox>
 
 #include "screenhome2.h"
 
 ScreenHome2::ScreenHome2(QWidget *parent) :
     QWidget(parent)
 {
-    QLabel *labelPanels = new QLabel("<span style='font-size: 18pt;'>Photovoltaic panels</span>");
+    QLabel *labelPanels = new QLabel("<span style='font-size:20pt;'>Photovoltaic panels</span>");
     labelPanels->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
 
-    QLabel *labelSurface = new QLabel("<span style='font-size:9pt;'>Roof surface <span style='font-size:7pt;'>(m²)</span></span>");
-    QLabel *labelDirection = new QLabel("<span style='font-size:9pt;'>Direction</span>");
-    QLabel *labelAngle = new QLabel("<span style='font-size:9pt;'>Angle <span style='font-size:7pt;'>(°)</span></span>");
+    QLabel *labelSurface = new QLabel("Roof surface <span style='font-size:10pt;'>(m²)</span></span>");
+    QLabel *labelDirection = new QLabel("Direction");
+    QLabel *labelAngle = new QLabel("Angle <span style='font-size:10pt;'>(°)</span></span>");
 
-    QLineEdit *lineSurface = new QLineEdit();
-    QLineEdit *lineDirection = new QLineEdit();
-    QLineEdit *lineAngle = new QLineEdit();
+    QSpinBox *lineSurface =     new QSpinBox();
+    lineSurface->setRange(1000, 1000000);   lineSurface->setSingleStep(500);
+    QComboBox *lineDirection =  new QComboBox();
+    QSpinBox *lineAngle =       new QSpinBox();
+    lineAngle->setRange(1000, 1000000);     lineAngle->setSingleStep(500);
 
+    lineDirection->addItem("North");
+    lineDirection->addItem("North East");
+    lineDirection->addItem("East");
+    lineDirection->addItem("South East");
+    lineDirection->addItem("South");
+    lineDirection->addItem("North West");
+    lineDirection->addItem("West");
+    lineDirection->addItem("North West");
 
     QGridLayout *layout = new QGridLayout;
 
@@ -37,16 +48,16 @@ ScreenHome2::ScreenHome2(QWidget *parent) :
     layout->setRowStretch(4, 1);
     setLayout(layout);
 
-    connect(lineSurface,    SIGNAL(textEdited(QString)),    this, SLOT(setSurface(QString)));
-    connect(lineDirection,  SIGNAL(textEdited(QString)),    this, SLOT(setDirection(QString)));
-    connect(lineAngle,      SIGNAL(textEdited(QString)),    this, SLOT(setAngle(QString)));
+    connect(lineSurface,    SIGNAL(valueChanged(int)),              this, SLOT(setSurface(int)));
+    connect(lineDirection,  SIGNAL(currentIndexChanged(QString)),   this, SLOT(setDirection(QString)));
+    connect(lineAngle,      SIGNAL(valueChanged(int)),              this, SLOT(setAngle(int)));
 }
 
 //Getters:
 
-double  ScreenHome2::getSurface()
+int     ScreenHome2::getSurface()
 {
-    return surface.toDouble();
+    return surface;
 }
 
 QString ScreenHome2::getDirection()
@@ -56,12 +67,12 @@ QString ScreenHome2::getDirection()
 
 int     ScreenHome2::getAngle()
 {
-    return angle.toInt();
+    return angle;
 }
 
 //Setters:
 
-void ScreenHome2::setSurface(QString _new)
+void ScreenHome2::setSurface(int _new)
 {
     surface = _new;
 }
@@ -71,7 +82,7 @@ void ScreenHome2::setDirection(QString _new)
     direction = _new;
 }
 
-void ScreenHome2::setAngle(QString _new)
+void ScreenHome2::setAngle(int _new)
 {
     angle = _new;
 }
