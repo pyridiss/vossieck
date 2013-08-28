@@ -33,6 +33,8 @@ FORMS    +=
 CONFIG += mobility
 MOBILITY = 
 
+RESOURCES = ApplicationGraphiqueQt.qrc
+
 OTHER_FILES += \
     android/version.xml \
     android/src/org/qtproject/qt5/android/bindings/QtActivity.java \
@@ -61,5 +63,6 @@ OTHER_FILES += \
     android/res/values-zh-rTW/strings.xml \
     android/res/values/strings.xml \
     android/res/values/libs.xml \
-    android/res/values-el/strings.xml
+    android/res/values-el/strings.xml \
+    logo.png
 

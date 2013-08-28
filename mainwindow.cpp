@@ -6,6 +6,7 @@
 #include <QRadioButton>
 #include <QGroupBox>
 #include <QGridLayout>
+#include <QPixmap>
 
 #include <string>
 #include <iostream>
@@ -22,15 +23,16 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Application Title
     QLabel *title = new QLabel;
+    QPixmap* logo = new QPixmap(":/logo.png");
     title->setAlignment(Qt::AlignHCenter);
-    title->setText("<span style='font-size:24pt;'>Doc4Energy</span>");
+    title->setPixmap(*logo);
 
     //Groupboxes
-    groupTitle = new QGroupBox(tr("Choose your profile:"));
-    groupIndustry1 = new QGroupBox(tr("Industry: Page 1/?"));
-    groupIndustry2 = new QGroupBox(tr("Industry: Page 2/?"));
-    groupHome1 = new QGroupBox(tr("Home: Page 1/?"));
-    groupHome2 = new QGroupBox(tr("Home: Page 2/?"));
+    groupTitle = new QGroupBox("Choose your profile:");
+    groupIndustry1 = new QGroupBox("Industry: Page 1/?");
+    groupIndustry2 = new QGroupBox("Industry: Page 2/?");
+    groupHome1 = new QGroupBox("Home: Page 1/?");
+    groupHome2 = new QGroupBox("Home: Page 2/?");
 
     //Screens
     screenTitle = new ScreenTitle(groupTitle);

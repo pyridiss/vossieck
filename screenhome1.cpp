@@ -14,31 +14,43 @@ ScreenHome1::ScreenHome1(QWidget *parent) :
     gasSelected = false;
     withHotWater = false;
 
-    QLabel *labelEnergy = new QLabel("<span style='font-size: 18pt;'>Energy</span>");
+    QLabel *labelEnergy = new QLabel("<span style='font-size: 20pt;'>Energy</span>");
     labelEnergy->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
 
-    QLabel *labelEnergykWhPerYear = new QLabel("<span style='font-size:9pt;'>Consumption <span style='font-size:7pt;'>(kWh/Year)</span></span>");
-    QLabel *labelEnergyPricePerkWh = new QLabel("<span style='font-size:9pt;'>Price <span style='font-size:7pt;'>(c€/kWh)</span></span>");
-    QLabel *labelEnergyBasePrice = new QLabel("<span style='font-size:9pt;'>Base Price <span style='font-size:7pt;'>(€/Month)</span></span>");
+    QLabel *labelEnergykWhPerYear = new QLabel("Consumption <span style='font-size:10pt;'>(kWh/Year)</span>");
+    QLabel *labelEnergyPricePerkWh = new QLabel("Price <span style='font-size:10pt;'>(c€/kWh)</span>");
+    QLabel *labelEnergyBasePrice = new QLabel("Base Price <span style='font-size:10pt;'>(€/Month)</span>");
 
-    QLineEdit *lineEnergykWhPerYear = new QLineEdit();
-    QLineEdit *lineEnergyPricePerkWh = new QLineEdit();
-    QLineEdit *lineEnergyBasePrice = new QLineEdit();
+    QSpinBox *lineEnergykWhPerYear =        new QSpinBox();
+    lineEnergykWhPerYear->setRange(1000, 1000000);  lineEnergykWhPerYear->setSingleStep(500);
+    QDoubleSpinBox *lineEnergyPricePerkWh = new QDoubleSpinBox();
+    lineEnergyPricePerkWh->setRange(1000, 1000000); lineEnergyPricePerkWh->setSingleStep(500);
+    QDoubleSpinBox *lineEnergyBasePrice =   new QDoubleSpinBox();
+    lineEnergyBasePrice->setRange(1000, 1000000);   lineEnergyBasePrice->setSingleStep(500);
+
+ //   QLineEdit *lineEnergykWhPerYear = new QLineEdit();
+ //   QLineEdit *lineEnergyPricePerkWh = new QLineEdit();
+ //   QLineEdit *lineEnergyBasePrice = new QLineEdit();
 
 
-    QLabel *labelHeat = new QLabel("<span style='font-size: 18pt;'>Heat</span>");
+    QLabel *labelHeat = new QLabel("<span style='font-size: 20pt;'>Heat</span>");
     labelHeat->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
 
-    QLabel *labelHeatkWhPerYear = new QLabel("<span style='font-size:9pt;'>Consumption <span style='font-size:7pt;'>(kWh/Year)</span></span>");
-    QLabel *labelHeatPricePerkWh = new QLabel("<span style='font-size:9pt;'>Price <span style='font-size:7pt;'>(c€/kWh)</span></span>");
+    QLabel *labelHeatkWhPerYear = new QLabel("Consumption <span style='font-size:10pt;'>(kWh/Year)</span>");
+    QLabel *labelHeatPricePerkWh = new QLabel("Price <span style='font-size:10pt;'>(c€/kWh)</span>");
 
-    QLineEdit *lineHeatkWhPerYear = new QLineEdit();
-    QLineEdit *lineHeatPricePerkWh = new QLineEdit();
+    QSpinBox *lineHeatkWhPerYear =        new QSpinBox();
+    lineHeatkWhPerYear->setRange(1000, 1000000);  lineHeatkWhPerYear->setSingleStep(500);
+    QDoubleSpinBox *lineHeatPricePerkWh = new QDoubleSpinBox();
+    lineHeatPricePerkWh->setRange(1000, 1000000); lineHeatPricePerkWh->setSingleStep(500);
 
-    QLabel *labelFuel = new QLabel("<span style='font-size:9pt;'>Fuel:</span>");
-    QRadioButton* radioGas = new QRadioButton("<span style='font-size:9pt;'>Gas</span>");
-    QRadioButton* radioOil = new QRadioButton("<span style='font-size:9pt;'>Oil</span>");
-    QCheckBox* checkHotWater = new QCheckBox("<span style='font-size:9pt;'>Hot Water included</span>");
+//    QLineEdit *lineHeatkWhPerYear = new QLineEdit();
+//    QLineEdit *lineHeatPricePerkWh = new QLineEdit();
+
+    QLabel *labelFuel = new QLabel("Fuel:");
+    QRadioButton* radioGas = new QRadioButton("Gas");
+    QRadioButton* radioOil = new QRadioButton("Oil");
+    QCheckBox* checkHotWater = new QCheckBox("Hot Water included");
 
     QGridLayout *layout = new QGridLayout;
 
@@ -65,11 +77,11 @@ ScreenHome1::ScreenHome1(QWidget *parent) :
     layout->setRowStretch(9, 1);
     setLayout(layout);
 
-    connect(lineEnergykWhPerYear,   SIGNAL(textEdited(QString)),    this, SLOT(setEnergy_kWhPerYear(QString)));
-    connect(lineEnergyPricePerkWh,  SIGNAL(textEdited(QString)),    this, SLOT(setEnergy_pricePerkWh(QString)));
-    connect(lineEnergyBasePrice,    SIGNAL(textEdited(QString)),    this, SLOT(setEnergy_basePrice(QString)));
-    connect(lineHeatkWhPerYear,     SIGNAL(textEdited(QString)),    this, SLOT(setHeat_kWhPerYear(QString)));
-    connect(lineHeatPricePerkWh,    SIGNAL(textEdited(QString)),    this, SLOT(setHeat_pricePerkWh(QString)));
+    connect(lineEnergykWhPerYear,   SIGNAL(valueChanged(int)),      this, SLOT(setEnergy_kWhPerYear(int)));
+    connect(lineEnergyPricePerkWh,  SIGNAL(valueChanged(double)),   this, SLOT(setEnergy_pricePerkWh(double)));
+    connect(lineEnergyBasePrice,    SIGNAL(valueChanged(double)),   this, SLOT(setEnergy_basePrice(double)));
+    connect(lineHeatkWhPerYear,     SIGNAL(valueChanged(int)),      this, SLOT(setHeat_kWhPerYear(int)));
+    connect(lineHeatPricePerkWh,    SIGNAL(valueChanged(double)),   this, SLOT(setHeat_pricePerkWh(double)));
     connect(radioGas,               SIGNAL(clicked()),              this, SLOT(checkGas()));
     connect(radioOil,               SIGNAL(clicked()),              this, SLOT(checkOil()));
     connect(checkHotWater,          SIGNAL(clicked(bool)),          this, SLOT(checkHotWater(bool)));
@@ -77,27 +89,27 @@ ScreenHome1::ScreenHome1(QWidget *parent) :
 
 //Setters:
 
-void ScreenHome1::setEnergy_kWhPerYear(QString _new)
+void ScreenHome1::setEnergy_kWhPerYear(int _new)
 {
     energy_kWhPerYear = _new;
 }
 
-void ScreenHome1::setEnergy_pricePerkWh(QString _new)
+void ScreenHome1::setEnergy_pricePerkWh(double _new)
 {
     energy_pricePerkWh = _new;
 }
 
-void ScreenHome1::setEnergy_basePrice(QString _new)
+void ScreenHome1::setEnergy_basePrice(double _new)
 {
     energy_basePrice = _new;
 }
 
-void ScreenHome1::setHeat_kWhPerYear(QString _new)
+void ScreenHome1::setHeat_kWhPerYear(int _new)
 {
     heat_kWhPerYear = _new;
 }
 
-void ScreenHome1::setHeat_pricePerkWh(QString _new)
+void ScreenHome1::setHeat_pricePerkWh(double _new)
 {
     heat_pricePerkWh = _new;
 }
@@ -121,27 +133,27 @@ void ScreenHome1::checkHotWater(bool _new)
 
 int ScreenHome1::getEnergy_kWhPerYear()
 {
-    return energy_kWhPerYear.toInt();
+    return energy_kWhPerYear;
 }
 
 double ScreenHome1::getEnergy_pricePerkWh()
 {
-    return energy_pricePerkWh.toDouble();
+    return energy_pricePerkWh;
 }
 
 double ScreenHome1::getEnergy_basePrice()
 {
-    return energy_pricePerkWh.toDouble();
+    return energy_pricePerkWh;
 }
 
 int ScreenHome1::getHeat_kWhPerYear()
 {
-    return heat_kWhPerYear.toInt();
+    return heat_kWhPerYear;
 }
 
 double ScreenHome1::getHeat_pricePerkWh()
 {
-    return heat_pricePerkWh.toDouble();
+    return heat_pricePerkWh;
 }
 
 bool ScreenHome1::getGasSelected()
