@@ -1,4 +1,5 @@
 #include <QApplication>
+#include <QFont>
 
 #include "mainwindow.h"
 
@@ -14,6 +15,9 @@ int main(int argc, char *argv[])
     MainWindow window;
 
     QLocale::setDefault(QLocale::German);
+
+    QFont font("Times", 12);
+    QApplication::setFont(font);
 
     window.show();
     return app.exec();
