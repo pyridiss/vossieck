@@ -22,9 +22,11 @@ class MainWindow : public QWidget
 
 public:
     MainWindow(QWidget *parent=0);
-    QGridLayout layoutMainWindow;
+    QPixmap& loadLogo();
 
 public:
+    QGridLayout layoutMainWindow;
+
     QPushButton *prev;
     QPushButton *next;
 

@@ -8,24 +8,25 @@
 #include <QGridLayout>
 #include <QPixmap>
 
-#include <string>
-#include <iostream>
-
 #include "mainwindow.h"
 #include "screentitle.h"
 #include "screenindustry1.h"
 #include "screenhome1.h"
+
+//Defined in main.cpp
+int getScreenWidth();
+int getScreenHeight();
 
 MainWindow::MainWindow(QWidget *parent)
     : QWidget(parent)
 {
     currentScreen = "title";
 
-    //Application Title
+    //Application Logo
     QLabel *title = new QLabel;
-    QPixmap* logo = new QPixmap(":/logo.png");
     title->setAlignment(Qt::AlignHCenter);
-    title->setPixmap(*logo);
+    title->setPixmap(loadLogo());
+    title->setScaledContents(true);
 
     //Groupboxes
     groupTitle = new QGroupBox("Choose your profile:");
@@ -78,6 +79,21 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(prev, SIGNAL(clicked()), this, SLOT(previousScreen()));
     connect(next, SIGNAL(clicked()), this, SLOT(nextScreen()));
+}
+
+QPixmap& MainWindow::loadLogo()
+{
+    QPixmap* logoOriginal = new QPixmap(":/logo.png");
+    int logoWidth = logoOriginal->width();
+
+    if (logoWidth > getScreenWidth() - 30)
+    {
+        QPixmap* logoScaled = new QPixmap();
+
+        *logoScaled = logoOriginal->scaled(getScreenWidth() - 30, getScreenHeight(), Qt::KeepAspectRatio);
+        return *logoScaled;
+    }
+    else return *logoOriginal;
 }
 
 void MainWindow::previousScreen()
