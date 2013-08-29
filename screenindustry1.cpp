@@ -70,29 +70,29 @@ ScreenIndustry1::ScreenIndustry1(QWidget *parent) :
 
     QGridLayout *layout = new QGridLayout;
 
-    layout->addWidget(labelEnergy,      0, 0, 1, 2);
+    layout->addWidget(labelEnergy,      0, 0, 1, 3);
     layout->addWidget(labelkWhPerYear,  1, 0, 1, 1);
     layout->addWidget(labelHTArbPreis,  2, 0, 1, 1);
     layout->addWidget(labelNTArbPreis,  3, 0, 1, 1);
     layout->addWidget(labelNetzkosten,  4, 0, 1, 1);
-    layout->addWidget(labelEEG,         5, 0, 1, 1);
+    layout->addWidget(labelEEG,         5, 0, 1, 2);
     layout->addWidget(labelKWK,         6, 0, 1, 1);
     layout->addWidget(labelStromstG,    7, 0, 1, 1);
     layout->addWidget(labelOffshore,    8, 0, 1, 1);
     layout->addWidget(labelLeistung,    9, 0, 1, 1);
 
 
-    layout->addWidget(linekWhPerYear,   1, 1, 1, 1);
-    layout->addWidget(lineHTArbPreis,   2, 1, 1, 1);
-    layout->addWidget(lineNTArbPreis,   3, 1, 1, 1);
-    layout->addWidget(lineNetzkosten,   4, 1, 1, 1);
+    layout->addWidget(linekWhPerYear,   1, 1, 1, 2);
+    layout->addWidget(lineHTArbPreis,   2, 1, 1, 2);
+    layout->addWidget(lineNTArbPreis,   3, 1, 1, 2);
+    layout->addWidget(lineNetzkosten,   4, 1, 1, 2);
 
-    layout->addWidget(radioEEG,         5, 1, 1, 1);
+    layout->addWidget(radioEEG,         5, 2, 1, 1);
 
-    layout->addWidget(lineKWK,          6, 1, 1, 1);
-    layout->addWidget(lineStromstG,     7, 1, 1, 1);
-    layout->addWidget(lineOffshore,     8, 1, 1, 1);
-    layout->addWidget(lineLeistung,     9, 1, 1, 1);
+    layout->addWidget(lineKWK,          6, 1, 1, 2);
+    layout->addWidget(lineStromstG,     7, 1, 1, 2);
+    layout->addWidget(lineOffshore,     8, 1, 1, 2);
+    layout->addWidget(lineLeistung,     9, 1, 1, 2);
 
     layout->setRowStretch(0, 1);
     layout->setRowStretch(10, 1);

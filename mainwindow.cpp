@@ -83,7 +83,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 QPixmap& MainWindow::loadLogo()
 {
-    QPixmap* logoOriginal = new QPixmap(":/logo.png");
+    QPixmap* logoOriginal = new QPixmap(":/logo.jpg");
     int logoWidth = logoOriginal->width();
 
     if (logoWidth > getScreenWidth() - 30)
