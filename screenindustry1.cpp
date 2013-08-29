@@ -16,10 +16,10 @@ ScreenIndustry1::ScreenIndustry1(QWidget *parent) :
     QLabel *labelEnergy = new QLabel("<span style='font-size: 20pt;'>Energy</span>");
     labelEnergy->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 
-    QLabel *labelkWhPerYear =   new QLabel("Consumption <span style='font-size:10pt;'>(kWh/Year)</span>");
-    QLabel *labelHTArbPreis =   new QLabel("HT Arbeitspreis <span style='font-size:10pt;'>(c€/kWh)</span>");
-    QLabel *labelNTArbPreis =   new QLabel("HT Arbeitspreis <span style='font-size:10pt;'>(c€/kWh)</span>");
-    QLabel *labelNetzkosten =   new QLabel("Netzkosten <span style='font-size:10pt;'>(€/?)</span>");
+    QLabel *labelkWhPerYear =   new QLabel("Consumption");
+    QLabel *labelHTArbPreis =   new QLabel("HT Arbeitspreis");
+    QLabel *labelNTArbPreis =   new QLabel("NT Arbeitspreis");
+    QLabel *labelNetzkosten =   new QLabel("Netzkosten");
     QLabel *labelEEG =          new QLabel("EEG-Umlage-Befreit:");
     QLabel *labelKWK =          new QLabel("KWK");
     QLabel *labelStromstG =     new QLabel("§19 Stromst-G.");
@@ -28,20 +28,43 @@ ScreenIndustry1::ScreenIndustry1(QWidget *parent) :
 
     QSpinBox *linekWhPerYear =       new QSpinBox();
     linekWhPerYear->setRange(1000, 1000000);    linekWhPerYear->setSingleStep(500);
+    linekWhPerYear->setAccelerated(true);
+    linekWhPerYear->setSuffix(" kWh/year");
+
     QDoubleSpinBox *lineHTArbPreis = new QDoubleSpinBox();
     lineHTArbPreis->setRange(1000, 1000000);    lineHTArbPreis->setSingleStep(500);
+    lineHTArbPreis->setAccelerated(true);
+    lineHTArbPreis->setSuffix(" c€/kWh");
+
     QDoubleSpinBox *lineNTArbPreis = new QDoubleSpinBox();
     lineNTArbPreis->setRange(1000, 1000000);    lineNTArbPreis->setSingleStep(500);
+    lineNTArbPreis->setAccelerated(true);
+    lineNTArbPreis->setSuffix(" c€/kWh");
+
     QDoubleSpinBox *lineNetzkosten = new QDoubleSpinBox();
     lineNetzkosten->setRange(1000, 1000000);    lineNetzkosten->setSingleStep(500);
+    lineNetzkosten->setAccelerated(true);
+    lineNetzkosten->setSuffix(" €");
+
     QDoubleSpinBox *lineKWK =        new QDoubleSpinBox();
     lineKWK->setRange(1000, 1000000);           lineKWK->setSingleStep(500);
+    lineKWK->setAccelerated(true);
+    lineKWK->setSuffix(" €");
+
     QDoubleSpinBox *lineStromstG =   new QDoubleSpinBox();
     lineStromstG->setRange(1000, 1000000);      lineStromstG->setSingleStep(500);
+    lineStromstG->setAccelerated(true);
+    lineStromstG->setSuffix(" €");
+
     QDoubleSpinBox *lineOffshore =   new QDoubleSpinBox();
     lineOffshore->setRange(1000, 1000000);      lineOffshore->setSingleStep(500);
+    lineOffshore->setAccelerated(true);
+    lineOffshore->setSuffix(" €");
+
     QDoubleSpinBox *lineLeistung =   new QDoubleSpinBox();
     lineLeistung->setRange(1000, 1000000);      lineLeistung->setSingleStep(500);
+    lineLeistung->setAccelerated(true);
+    lineLeistung->setSuffix(" €");
 
     QCheckBox *radioEEG =       new QCheckBox();
 
@@ -84,6 +107,16 @@ ScreenIndustry1::ScreenIndustry1(QWidget *parent) :
     connect(lineStromstG,   SIGNAL(valueChanged(double)),   this, SLOT(setStromstG(double)));
     connect(lineOffshore,   SIGNAL(valueChanged(double)),   this, SLOT(setOffshore(double)));
     connect(lineLeistung,   SIGNAL(valueChanged(double)),   this, SLOT(setLeistung(double)));
+
+    //Signals to stop editing fields
+    connect(linekWhPerYear, SIGNAL(editingFinished()),      this, SLOT(setFocus()));
+    connect(lineHTArbPreis, SIGNAL(editingFinished()),      this, SLOT(setFocus()));
+    connect(lineNTArbPreis, SIGNAL(editingFinished()),      this, SLOT(setFocus()));
+    connect(lineNetzkosten, SIGNAL(editingFinished()),      this, SLOT(setFocus()));
+    connect(lineKWK,        SIGNAL(editingFinished()),      this, SLOT(setFocus()));
+    connect(lineStromstG,   SIGNAL(editingFinished()),      this, SLOT(setFocus()));
+    connect(lineOffshore,   SIGNAL(editingFinished()),      this, SLOT(setFocus()));
+    connect(lineLeistung,   SIGNAL(editingFinished()),      this, SLOT(setFocus()));
 }
 
 //Getters:

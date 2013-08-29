@@ -17,35 +17,41 @@ ScreenHome1::ScreenHome1(QWidget *parent) :
     QLabel *labelEnergy = new QLabel("<span style='font-size: 20pt;'>Energy</span>");
     labelEnergy->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
 
-    QLabel *labelEnergykWhPerYear = new QLabel("Consumption <span style='font-size:10pt;'>(kWh/Year)</span>");
-    QLabel *labelEnergyPricePerkWh = new QLabel("Price <span style='font-size:10pt;'>(c€/kWh)</span>");
-    QLabel *labelEnergyBasePrice = new QLabel("Base Price <span style='font-size:10pt;'>(€/Month)</span>");
+    QLabel *labelEnergykWhPerYear = new QLabel("Consumption");
+    QLabel *labelEnergyPricePerkWh = new QLabel("Price");
+    QLabel *labelEnergyBasePrice = new QLabel("Base Price");
 
     QSpinBox *lineEnergykWhPerYear =        new QSpinBox();
     lineEnergykWhPerYear->setRange(1000, 1000000);  lineEnergykWhPerYear->setSingleStep(500);
+    lineEnergykWhPerYear->setAccelerated(true);
+    lineEnergykWhPerYear->setSuffix(" kWh/Year");
+
     QDoubleSpinBox *lineEnergyPricePerkWh = new QDoubleSpinBox();
     lineEnergyPricePerkWh->setRange(1000, 1000000); lineEnergyPricePerkWh->setSingleStep(500);
+    lineEnergyPricePerkWh->setAccelerated(true);
+    lineEnergyPricePerkWh->setSuffix(" c€/kWh");
+
     QDoubleSpinBox *lineEnergyBasePrice =   new QDoubleSpinBox();
     lineEnergyBasePrice->setRange(1000, 1000000);   lineEnergyBasePrice->setSingleStep(500);
-
- //   QLineEdit *lineEnergykWhPerYear = new QLineEdit();
- //   QLineEdit *lineEnergyPricePerkWh = new QLineEdit();
- //   QLineEdit *lineEnergyBasePrice = new QLineEdit();
+    lineEnergyBasePrice->setAccelerated(true);
+    lineEnergyBasePrice->setSuffix(" €/Month");
 
 
     QLabel *labelHeat = new QLabel("<span style='font-size: 20pt;'>Heat</span>");
     labelHeat->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
 
-    QLabel *labelHeatkWhPerYear = new QLabel("Consumption <span style='font-size:10pt;'>(kWh/Year)</span>");
-    QLabel *labelHeatPricePerkWh = new QLabel("Price <span style='font-size:10pt;'>(c€/kWh)</span>");
+    QLabel *labelHeatkWhPerYear = new QLabel("Consumption");
+    QLabel *labelHeatPricePerkWh = new QLabel("Price");
 
     QSpinBox *lineHeatkWhPerYear =        new QSpinBox();
     lineHeatkWhPerYear->setRange(1000, 1000000);  lineHeatkWhPerYear->setSingleStep(500);
+    lineHeatkWhPerYear->setAccelerated(true);
+    lineHeatkWhPerYear->setSuffix(" kWh/year");
+
     QDoubleSpinBox *lineHeatPricePerkWh = new QDoubleSpinBox();
     lineHeatPricePerkWh->setRange(1000, 1000000); lineHeatPricePerkWh->setSingleStep(500);
-
-//    QLineEdit *lineHeatkWhPerYear = new QLineEdit();
-//    QLineEdit *lineHeatPricePerkWh = new QLineEdit();
+    lineHeatPricePerkWh->setAccelerated(true);
+    lineHeatPricePerkWh->setSuffix(" c€/kWh");
 
     QLabel *labelFuel = new QLabel("Fuel:");
     QRadioButton* radioGas = new QRadioButton("Gas");
@@ -85,6 +91,13 @@ ScreenHome1::ScreenHome1(QWidget *parent) :
     connect(radioGas,               SIGNAL(clicked()),              this, SLOT(checkGas()));
     connect(radioOil,               SIGNAL(clicked()),              this, SLOT(checkOil()));
     connect(checkHotWater,          SIGNAL(clicked(bool)),          this, SLOT(checkHotWater(bool)));
+
+    //Signals to stop editing fields
+    connect(lineEnergykWhPerYear,   SIGNAL(editingFinished()),      this, SLOT(setFocus()));
+    connect(lineEnergyPricePerkWh,  SIGNAL(editingFinished()),      this, SLOT(setFocus()));
+    connect(lineEnergyBasePrice,    SIGNAL(editingFinished()),      this, SLOT(setFocus()));
+    connect(lineHeatkWhPerYear,     SIGNAL(editingFinished()),      this, SLOT(setFocus()));
+    connect(lineHeatPricePerkWh,    SIGNAL(editingFinished()),      this, SLOT(setFocus()));
 }
 
 //Setters:

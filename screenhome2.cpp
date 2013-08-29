@@ -15,22 +15,28 @@ ScreenHome2::ScreenHome2(QWidget *parent) :
     QLabel *labelPanels = new QLabel("<span style='font-size:20pt;'>Photovoltaic panels</span>");
     labelPanels->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
 
-    QLabel *labelSurface = new QLabel("Roof surface <span style='font-size:10pt;'>(m²)</span></span>");
+    QLabel *labelSurface = new QLabel("Roof surface");
     QLabel *labelDirection = new QLabel("Direction");
-    QLabel *labelAngle = new QLabel("Angle <span style='font-size:10pt;'>(°)</span></span>");
+    QLabel *labelAngle = new QLabel("Angle");
 
     QSpinBox *lineSurface =     new QSpinBox();
     lineSurface->setRange(1000, 1000000);   lineSurface->setSingleStep(500);
+    lineSurface->setAccelerated(true);
+    lineSurface->setSuffix(" m²");
+
     QComboBox *lineDirection =  new QComboBox();
+
     QSpinBox *lineAngle =       new QSpinBox();
     lineAngle->setRange(1000, 1000000);     lineAngle->setSingleStep(500);
+    lineAngle->setAccelerated(true);
+    lineAngle->setSuffix(" °");
 
     lineDirection->addItem("North");
     lineDirection->addItem("North East");
     lineDirection->addItem("East");
     lineDirection->addItem("South East");
     lineDirection->addItem("South");
-    lineDirection->addItem("North West");
+    lineDirection->addItem("South West");
     lineDirection->addItem("West");
     lineDirection->addItem("North West");
 
@@ -51,6 +57,10 @@ ScreenHome2::ScreenHome2(QWidget *parent) :
     connect(lineSurface,    SIGNAL(valueChanged(int)),              this, SLOT(setSurface(int)));
     connect(lineDirection,  SIGNAL(currentIndexChanged(QString)),   this, SLOT(setDirection(QString)));
     connect(lineAngle,      SIGNAL(valueChanged(int)),              this, SLOT(setAngle(int)));
+
+    //Signals to stop editing fields
+    connect(lineSurface,    SIGNAL(editingFinished()),              this, SLOT(setFocus()));
+    connect(lineAngle,      SIGNAL(editingFinished()),              this, SLOT(setFocus()));
 }
 
 //Getters:
