@@ -33,10 +33,10 @@ int main(int argc, char *argv[])
     QApplication::setFont(font);
 
     QIcon icon(":/icon.svg");
+    window.setWindowIcon(icon);
 
     desktop = app.desktop();
-    //desktop->setWindowIcon(icon);
-window.setWindowIcon(icon);
+
     window.show();
     return app.exec();
 }
