@@ -20,14 +20,14 @@ ScreenHome2::ScreenHome2(QWidget *parent) :
     QLabel *labelAngle = new QLabel("Angle");
 
     QSpinBox *lineSurface =     new QSpinBox();
-    lineSurface->setRange(1000, 1000000);   lineSurface->setSingleStep(500);
+    lineSurface->setRange(0, 1000);   lineSurface->setSingleStep(1);
     lineSurface->setAccelerated(true);
     lineSurface->setSuffix(" m²");
 
     QComboBox *lineDirection =  new QComboBox();
 
     QSpinBox *lineAngle =       new QSpinBox();
-    lineAngle->setRange(1000, 1000000);     lineAngle->setSingleStep(500);
+    lineAngle->setRange(0, 50);     lineAngle->setSingleStep(1);
     lineAngle->setAccelerated(true);
     lineAngle->setSuffix(" °");
 

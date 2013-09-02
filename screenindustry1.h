@@ -10,18 +10,18 @@ public:
     explicit ScreenIndustry1(QWidget *parent = 0);
 
 private:
-    int kWhPerYear;
+    int    consumption;
     double hTArbPreis;
     double nTArbPreis;
     double netzkosten;
-    bool    checkedEEG;
+    bool   checkedEEG;
     double kWK;
     double stromstG;
     double offshore;
     double leistung;
 
 public:
-    int     getkWhPerYear();
+    int     getConsumption();
     double  getHTArbPreis();
     double  getNTArbPreis();
     double  getNetzkosten();
@@ -34,7 +34,7 @@ public:
 signals:
 
 public slots:
-    void setkWhPerYear(int _new);
+    void setConsumption(int _new);
     void setHTArbPreis(double _new);
     void setNTArbPreis(double _new);
     void setNetzkosten(double _new);
