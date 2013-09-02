@@ -1,6 +1,7 @@
 #include <QApplication>
 #include <QFont>
 #include <QDesktopWidget>
+#include <QIcon>
 
 #include "mainwindow.h"
 
@@ -31,8 +32,11 @@ int main(int argc, char *argv[])
     QFont font("Times", 12);
     QApplication::setFont(font);
 
-    desktop = app.desktop();
+    QIcon icon(":/icon.svg");
 
+    desktop = app.desktop();
+    //desktop->setWindowIcon(icon);
+window.setWindowIcon(icon);
     window.show();
     return app.exec();
 }
