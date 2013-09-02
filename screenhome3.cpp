@@ -32,6 +32,7 @@ ScreenHome3::ScreenHome3(QWidget *parent)
     layoutHaus->addWidget(radioMehrFamHaus);
     layoutHaus->addWidget(radioEinFamHaus);
     layoutHaus->addWidget(radioWohnung);
+    layoutHaus->addStretch(1);
     groupHaus->setLayout(layoutHaus);
 
     QGroupBox *groupEigen = new QGroupBox;
@@ -39,6 +40,7 @@ ScreenHome3::ScreenHome3(QWidget *parent)
     layoutEigen->addWidget(labelEigen);
     layoutEigen->addWidget(radioEigentuemer);
     layoutEigen->addWidget(radioMiete);
+    layoutEigen->addStretch(1);
     groupEigen->setLayout(layoutEigen);
 
     QVBoxLayout *layout = new QVBoxLayout;

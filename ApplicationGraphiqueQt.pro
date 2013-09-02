@@ -37,6 +37,8 @@ MOBILITY =
 
 RESOURCES = ApplicationGraphiqueQt.qrc
 
+ICON = icon.svg
+
 OTHER_FILES += \
     android/version.xml \
     android/src/org/qtproject/qt5/android/bindings/QtActivity.java \
