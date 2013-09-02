@@ -1,10 +1,6 @@
 #include <QLabel>
 #include <QGridLayout>
-#include <QRadioButton>
-#include <QLineEdit>
 #include <QSpinBox>
-#include <QDoubleSpinBox>
-#include <QCheckBox>
 #include <QComboBox>
 
 #include "screenhome2.h"

@@ -1,7 +1,6 @@
 #include <QLabel>
 #include <QGridLayout>
 #include <QRadioButton>
-#include <QLineEdit>
 #include <QSpinBox>
 #include <QDoubleSpinBox>
 #include <QCheckBox>
@@ -27,7 +26,7 @@ ScreenHome1::ScreenHome1(QWidget *parent) :
     lineEnergyConsumption->setSuffix(" kWh/Year");
 
     QDoubleSpinBox *lineEnergyPrice     = new QDoubleSpinBox();
-    lineEnergyPrice->setRange(1000, 100);       lineEnergyPrice->setSingleStep(0.01);
+    lineEnergyPrice->setRange(0, 100);          lineEnergyPrice->setSingleStep(0.01);
     lineEnergyPrice->setAccelerated(true);
     lineEnergyPrice->setSuffix(" c€/kWh");
 

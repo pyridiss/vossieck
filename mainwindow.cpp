@@ -1,9 +1,7 @@
 #include <QApplication>
 #include <QPushButton>
-#include <QFont>
 #include <QWidget>
 #include <QLabel>
-#include <QRadioButton>
 #include <QGroupBox>
 #include <QGridLayout>
 #include <QPixmap>
@@ -34,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
     groupIndustry2 = new QGroupBox("Industry: Page 2/?");
     groupHome1 = new QGroupBox("Home: Page 1/?");
     groupHome2 = new QGroupBox("Home: Page 2/?");
+    groupHome3 = new QGroupBox("Home: Page 3/?");
 
     //Screens
     screenTitle = new ScreenTitle(groupTitle);
@@ -41,6 +40,7 @@ MainWindow::MainWindow(QWidget *parent)
     screenIndustry2 = new ScreenIndustry2(groupIndustry2);
     screenHome1 = new ScreenHome1(groupHome1);
     screenHome2 = new ScreenHome2(groupHome2);
+    screenHome3 = new ScreenHome3(groupHome3);
 
     //Layouts for screens
     QGridLayout *layoutScreenTitle = new QGridLayout;
@@ -62,6 +62,10 @@ MainWindow::MainWindow(QWidget *parent)
     QGridLayout *layoutScreenHome2 = new QGridLayout;
     layoutScreenHome2->addWidget(screenHome2, 0, 0, 1, 1);
     groupHome2->setLayout(layoutScreenHome2);
+
+    QGridLayout *layoutScreenHome3 = new QGridLayout;
+    layoutScreenHome3->addWidget(screenHome3, 0, 0, 1, 1);
+    groupHome3->setLayout(layoutScreenHome3);
 
     //Previous & Next
     prev = new QPushButton("Quit");
@@ -136,6 +140,14 @@ void MainWindow::previousScreen()
         groupHome2->hide();
         groupHome1->show();
         currentScreen = "home1";
+    }
+    else if (currentScreen == "home3")
+    {
+        layoutMainWindow.removeWidget(groupHome3);
+        layoutMainWindow.addWidget(groupHome2, 1, 0, 1, 2);
+        groupHome3->hide();
+        groupHome2->show();
+        currentScreen = "home2";
         next->setText("Next >");
     }
 }
@@ -176,9 +188,17 @@ void MainWindow::nextScreen()
         groupHome2->show();
         layoutMainWindow.addWidget(groupHome2, 1, 0, 1, 2);
         currentScreen = "home2";
+    }
+    else if (currentScreen == "home2")
+    {
+        layoutMainWindow.removeWidget(groupHome2);
+        groupHome2->hide();
+        groupHome3->show();
+        layoutMainWindow.addWidget(groupHome3, 1, 0, 1, 2);
+        currentScreen = "home3";
         next->setText("Quit");
     }
-    else if (currentScreen == "industry2" || currentScreen == "home2")
+    else if (currentScreen == "industry2" || currentScreen == "home3")
     {
         qApp->quit();
     }

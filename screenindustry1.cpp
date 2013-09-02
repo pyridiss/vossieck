@@ -27,7 +27,7 @@ ScreenIndustry1::ScreenIndustry1(QWidget *parent) :
     QLabel *labelLeistung =     new QLabel("Leistungskosten");
 
     QSpinBox *lineConsumption =      new QSpinBox();
-    lineConsumption->setRange(50000, 100000000); lineConsumption->setSingleStep(50);
+    lineConsumption->setRange(0, 100000000);    lineConsumption->setSingleStep(50);
     lineConsumption->setAccelerated(true);
     lineConsumption->setSuffix(" kWh/year");
 
@@ -52,7 +52,7 @@ ScreenIndustry1::ScreenIndustry1(QWidget *parent) :
     lineKWK->setSuffix(" €");
 
     QDoubleSpinBox *lineStromstG =   new QDoubleSpinBox();
-    lineStromstG->setRange(1000, 1000000);      lineStromstG->setSingleStep(0.01);
+    lineStromstG->setRange(0, 1000000);         lineStromstG->setSingleStep(0.01);
     lineStromstG->setAccelerated(true);
     lineStromstG->setSuffix(" €");
 

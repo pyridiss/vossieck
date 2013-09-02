@@ -11,6 +11,7 @@
 #include "screentitle.h"
 #include "screenhome1.h"
 #include "screenhome2.h"
+#include "screenhome3.h"
 #include "screenindustry1.h"
 #include "screenindustry2.h"
 
@@ -35,12 +36,14 @@ public:
     ScreenIndustry2* screenIndustry2;
     ScreenHome1* screenHome1;
     ScreenHome2* screenHome2;
+    ScreenHome3* screenHome3;
 
     QGroupBox *groupTitle;
     QGroupBox *groupIndustry1;
     QGroupBox *groupIndustry2;
     QGroupBox *groupHome1;
     QGroupBox *groupHome2;
+    QGroupBox *groupHome3;
 
 public:
     string currentScreen;
