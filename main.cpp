@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     QFont font("Times", 12);
     QApplication::setFont(font);
 
-    QIcon icon(":/icon.svg");
+    QIcon icon(":/Icon.png");
     window.setWindowIcon(icon);
 
     desktop = app.desktop();

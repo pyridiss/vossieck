@@ -51,6 +51,7 @@ public:
 private slots:
     void previousScreen();
     void nextScreen();
+    void sendData();
 };
 
 #endif // MAINWINDOW_H

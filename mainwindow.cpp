@@ -5,6 +5,10 @@
 #include <QGroupBox>
 #include <QGridLayout>
 #include <QPixmap>
+#include <QtNetwork/QNetworkAccessManager>
+#include <QtNetwork/QNetworkRequest>
+#include <QtNetwork/QNetworkReply>
+#include <QUrl>
 
 #include "mainwindow.h"
 #include "screentitle.h"
@@ -19,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QWidget(parent)
 {
     currentScreen = "title";
-
+    sendData();
     //Application Logo
     QLabel *title = new QLabel;
     title->setAlignment(Qt::AlignHCenter);
@@ -202,4 +206,14 @@ void MainWindow::nextScreen()
     {
         qApp->quit();
     }
+}
+
+void MainWindow::sendData()
+{
+    QNetworkAccessManager *manager = new QNetworkAccessManager;
+
+    QUrl url("http://quentin.henriet.free.fr/vossieck.php?valeur=10");
+    QNetworkRequest request(url);
+
+    QNetworkReply *reply = manager->get(request);
 }
