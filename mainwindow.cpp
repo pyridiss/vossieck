@@ -2,7 +2,6 @@
 #include <QPushButton>
 #include <QWidget>
 #include <QLabel>
-#include <QGroupBox>
 #include <QGridLayout>
 #include <QPixmap>
 
@@ -85,23 +84,24 @@ void MainWindow::previousScreen()
         changeScreen("title", screenIndustry1, screenTitle);
         prev->setText("Quit");
     }
-    else if (currentScreen == "industry2")
-    {
-        changeScreen("industry1", screenIndustry2, screenIndustry1);
-        next->setText("Next >");
-    }
     else if (currentScreen == "home1")
     {
         changeScreen("title", screenHome1, screenTitle);
         prev->setText("Quit");
     }
+    else if (currentScreen == "industry2")
+        changeScreen("industry1", screenIndustry2, screenIndustry1);
+
     else if (currentScreen == "home2")
-    {
         changeScreen("home1", screenHome2, screenHome1);
-    }
+
     else if (currentScreen == "home3")
-    {
         changeScreen("home2", screenHome3, screenHome2);
+
+    else if (currentScreen == "final")
+    {
+        if (screenTitle->industryChecked)   changeScreen("industry2", finalScreen, screenIndustry2);
+        if (screenTitle->homeChecked)       changeScreen("home3", finalScreen, screenHome3);
         next->setText("Next >");
     }
 }
@@ -119,21 +119,22 @@ void MainWindow::nextScreen()
         prev->setText("< Previous");
     }
     else if (currentScreen == "industry1")
-    {
         changeScreen("industry2", screenIndustry1, screenIndustry2);
-        next->setText("Quit");
-    }
+
     else if (currentScreen == "home1")
-    {
         changeScreen("home2", screenHome1, screenHome2);
-        currentScreen = "home2";
-    }
+
     else if (currentScreen == "home2")
-    {
         changeScreen("home3", screenHome2, screenHome3);
+
+    else if (currentScreen == "industry2" || currentScreen == "home3")
+    {
+        if (currentScreen == "industry2")   changeScreen("final", screenIndustry2, finalScreen);
+        if (currentScreen == "home3")       changeScreen("final", screenHome3, finalScreen);
+        createDataString();
         next->setText("Quit");
     }
-    else if (currentScreen == "industry2" || currentScreen == "home3")
+    else if (currentScreen == "final")
     {
         qApp->quit();
     }
@@ -141,5 +142,5 @@ void MainWindow::nextScreen()
 
 void MainWindow::createDataString()
 {
-    finalScreen->setDataString("");
+    finalScreen->setDataString("valeur=100");
 }

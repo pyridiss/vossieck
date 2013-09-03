@@ -18,7 +18,7 @@ public:
 signals:
     
 public slots:
-    
+    void sendData();
 };
 
 #endif // FINALSCREEN_H
