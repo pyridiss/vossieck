@@ -173,15 +173,15 @@ void MainWindow::createDataString()
     str += "sh3-miete=";    str += (screenHome3->mieteChecked) ? "true" : "false";          str += "&";
 
     //Screen Industry 1
-    str += "si1-cons=";     str += screenIndustry1->consumption;                        str += "&";
-    str += "si1-htap=";     str += screenIndustry1->hTArbPreis;                         str += "&";
-    str += "si1-ntap=";     str += screenIndustry1->nTArbPreis;                         str += "&";
-    str += "si1-netz=";     str += screenIndustry1->netzkosten;                         str += "&";
+    str += "si1-cons=";     str += toStr(screenIndustry1->consumption);                 str += "&";
+    str += "si1-htap=";     str += toStr(screenIndustry1->hTArbPreis);                  str += "&";
+    str += "si1-ntap=";     str += toStr(screenIndustry1->nTArbPreis);                  str += "&";
+    str += "si1-netz=";     str += toStr(screenIndustry1->netzkosten);                  str += "&";
     str += "si1-eeg=";      str += (screenIndustry1->checkedEEG) ? "true" : "false";    str += "&";
-    str += "si1-kwk=";      str += screenIndustry1->kWK;                                str += "&";
-    str += "si1-strsmg=";   str += screenIndustry1->stromstG;                           str += "&";
-    str += "si1-off=";      str += screenIndustry1->offshore;                           str += "&";
-    str += "si1-leist=";    str += screenIndustry1->leistung;                           str += "&";
+    str += "si1-kwk=";      str += toStr(screenIndustry1->kWK);                         str += "&";
+    str += "si1-strsmg=";   str += toStr(screenIndustry1->stromstG);                    str += "&";
+    str += "si1-off=";      str += toStr(screenIndustry1->offshore);                    str += "&";
+    str += "si1-leist=";    str += toStr(screenIndustry1->leistung);                    str += "&";
 
     //Screen Industry 2
 

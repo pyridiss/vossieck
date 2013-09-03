@@ -8,6 +8,9 @@
 ScreenHome2::ScreenHome2(QWidget *parent) :
     QWidget(parent)
 {
+    surface = 0;
+    angle = 0;
+
     QLabel *labelPanels = new QLabel("<span style='font-size:20pt;'>Photovoltaic panels</span>");
     labelPanels->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
 

@@ -11,7 +11,16 @@
 ScreenIndustry1::ScreenIndustry1(QWidget *parent) :
     QWidget(parent)
 {
+    consumption = 0;
+    hTArbPreis = 0;
+    nTArbPreis = 0;
+    netzkosten = 0;
     checkedEEG = false;
+    kWK = 0;
+    stromstG = 0;
+    offshore = 0;
+    leistung = 0;
+
 
     QLabel *labelEnergy = new QLabel("<span style='font-size: 20pt;'>Energy</span>");
     labelEnergy->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);

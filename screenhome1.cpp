@@ -10,6 +10,11 @@
 ScreenHome1::ScreenHome1(QWidget *parent) :
     QWidget(parent)
 {
+    energy_consumption = 0;
+    energy_price = 0;
+    energy_basePrice = 0;
+    heat_consumption = 0;
+    heat_price = 0;
     gasSelected = false;
     withHotWater = false;
 
