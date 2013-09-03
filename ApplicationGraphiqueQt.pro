@@ -39,7 +39,7 @@ MOBILITY =
 
 RESOURCES = ApplicationGraphiqueQt.qrc
 
-ICON = icon.svg
+ICON = Icon.png
 
 OTHER_FILES += \
     android/version.xml \
