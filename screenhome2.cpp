@@ -59,23 +59,6 @@ ScreenHome2::ScreenHome2(QWidget *parent) :
     connect(lineAngle,      SIGNAL(editingFinished()),              this, SLOT(setFocus()));
 }
 
-//Getters:
-
-int     ScreenHome2::getSurface()
-{
-    return surface;
-}
-
-QString ScreenHome2::getDirection()
-{
-    return direction;
-}
-
-int     ScreenHome2::getAngle()
-{
-    return angle;
-}
-
 //Setters:
 
 void ScreenHome2::setSurface(int _new)

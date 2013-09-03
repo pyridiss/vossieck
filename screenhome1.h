@@ -9,7 +9,7 @@ class ScreenHome1 : public QWidget
 public:
     explicit ScreenHome1(QWidget *parent = 0);
 
-private:
+public:
     int     energy_consumption;
     double  energy_price;
     double  energy_basePrice;
@@ -17,15 +17,6 @@ private:
     double  heat_price;
     bool    gasSelected;
     bool    withHotWater;
-
-public:
-    int     getEnergy_consumption();
-    double  getEnergy_price();
-    double  getEnergy_basePrice();
-    int     getHeat_consumption();
-    double  getHeat_price();
-    bool    getGasSelected();
-    bool    getWithHotWater();
 
 signals:
 

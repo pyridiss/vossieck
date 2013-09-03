@@ -9,21 +9,13 @@ class ScreenHome3 : public QWidget
 public:
     explicit ScreenHome3(QWidget *parent = 0);
 
-private:
+public:
     bool mehrFamHausChecked;
     bool einFamHausChecked;
     bool wohnungChecked;
 
     bool eigentuemerChecked;
     bool mieteChecked;
-
-public:
-    bool getMehrFamHausChecked();
-    bool getEinFamHausChecked();
-    bool getWohnungChecked();
-
-    bool getEigentuemerChecked();
-    bool getMieteChecked();
 
 signals:
     

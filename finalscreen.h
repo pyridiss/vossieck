@@ -2,6 +2,7 @@
 #define FINALSCREEN_H
 
 #include <QWidget>
+#include <QLabel>
 
 class FinalScreen : public QWidget
 {
@@ -14,6 +15,7 @@ public:
 
 public:
     QString data;
+    QLabel *labelError;
 
 signals:
     

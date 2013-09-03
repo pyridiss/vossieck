@@ -55,30 +55,7 @@ ScreenHome3::ScreenHome3(QWidget *parent)
     connect(radioMiete,         SIGNAL(clicked()), this, SLOT(setMieteChecked()));
 }
 
-bool ScreenHome3::getMehrFamHausChecked()
-{
-    return mehrFamHausChecked;
-}
-
-bool ScreenHome3::getEinFamHausChecked()
-{
-    return einFamHausChecked;
-}
-
-bool ScreenHome3::getWohnungChecked()
-{
-    return wohnungChecked;
-}
-
-bool ScreenHome3::getEigentuemerChecked()
-{
-    return eigentuemerChecked;
-}
-
-bool ScreenHome3::getMieteChecked()
-{
-    return mieteChecked;
-}
+//Setters:
 
 void ScreenHome3::setMehrFamHausChecked()
 {

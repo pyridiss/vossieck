@@ -142,5 +142,49 @@ void MainWindow::nextScreen()
 
 void MainWindow::createDataString()
 {
-    finalScreen->setDataString("valeur=100");
+    QString str = "";
+
+    //Screen Title
+    if (screenTitle->homeChecked) str += "profile=Home";
+    if (screenTitle->industryChecked) str += "profile=Industry";
+    str += "&";
+
+    //Screen Home 1
+    str += "sh1-en_cons=";      str += screenHome1->energy_consumption;                 str += "&";
+    str += "sh1-en_price=";     str += screenHome1->energy_price;                       str += "&";
+    str += "sh1-en_bprice=";    str += screenHome1->energy_basePrice;                   str += "&";
+    str += "sh1-he_cons=";      str += screenHome1->heat_consumption;                   str += "&";
+    str += "sh1-he_price=";     str += screenHome1->heat_price;                         str += "&";
+    str += "sh1-gas=";          str += (screenHome1->gasSelected) ? "true" : "false";   str += "&";
+    str += "sh1-hotwater=";     str += (screenHome1->withHotWater) ? "true" : "false";  str += "&";
+
+    //Screen Home 2
+    str += "sh2-surf=";     str += screenHome2->surface;    str += "&";
+    str += "sh2-dir=";      str += screenHome2->direction;  str += "&";
+    str += "sh2-angle";     str += screenHome2->angle;      str += "&";
+
+    //Screen Home 3
+    str += "sh3-mehr=";     str += (screenHome3->mehrFamHausChecked) ? "true" : "false";    str += "&";
+    str += "sh3-ein=";      str += (screenHome3->einFamHausChecked) ? "true" : "false";     str += "&";
+    str += "sh3-wohn=";     str += (screenHome3->wohnungChecked) ? "true" : "false";        str += "&";
+    str += "sh3-eigen=";    str += (screenHome3->eigentuemerChecked) ? "true" : "false";    str += "&";
+    str += "sh3-miete=";    str += (screenHome3->mieteChecked) ? "true" : "false";          str += "&";
+
+    //Screen Industry 1
+    str += "si1-cons=";     str += screenIndustry1->consumption;                        str += "&";
+    str += "si1-htap=";     str += screenIndustry1->hTArbPreis;                         str += "&";
+    str += "si1-ntap=";     str += screenIndustry1->nTArbPreis;                         str += "&";
+    str += "si1-netz=";     str += screenIndustry1->netzkosten;                         str += "&";
+    str += "si1-eeg=";      str += (screenIndustry1->checkedEEG) ? "true" : "false";    str += "&";
+    str += "si1-kwk";       str += screenIndustry1->kWK;                                str += "&";
+    str += "si1-strsmg";    str += screenIndustry1->stromstG;                           str += "&";
+    str += "si1-off";       str += screenIndustry1->offshore;                           str += "&";
+    str += "si1-leist";     str += screenIndustry1->leistung;                           str += "&";
+
+    //Screen Industry 2
+
+    //Sending data string
+    int valeur = 55;
+    str += "valeur=";   str += valeur;
+    finalScreen->setDataString(str);
 }

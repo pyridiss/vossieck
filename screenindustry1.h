@@ -9,7 +9,7 @@ class ScreenIndustry1 : public QWidget
 public:
     explicit ScreenIndustry1(QWidget *parent = 0);
 
-private:
+public:
     int    consumption;
     double hTArbPreis;
     double nTArbPreis;
@@ -19,17 +19,6 @@ private:
     double stromstG;
     double offshore;
     double leistung;
-
-public:
-    int     getConsumption();
-    double  getHTArbPreis();
-    double  getNTArbPreis();
-    double  getNetzkosten();
-    bool    getCheckedEEG();
-    double  getKWK();
-    double  getStromstG();
-    double  getOffshore();
-    double  getLeistung();
 
 signals:
 

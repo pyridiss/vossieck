@@ -119,53 +119,6 @@ ScreenIndustry1::ScreenIndustry1(QWidget *parent) :
     connect(lineLeistung,       SIGNAL(editingFinished()),      this, SLOT(setFocus()));
 }
 
-//Getters:
-
-int     ScreenIndustry1::getConsumption()
-{
-    return consumption;
-}
-
-double  ScreenIndustry1::getHTArbPreis()
-{
-    return hTArbPreis;
-}
-
-double  ScreenIndustry1::getNTArbPreis()
-{
-    return nTArbPreis;
-}
-
-double  ScreenIndustry1::getNetzkosten()
-{
-    return netzkosten;
-}
-
-bool    ScreenIndustry1::getCheckedEEG()
-{
-    return checkedEEG;
-}
-
-double  ScreenIndustry1::getKWK()
-{
-    return kWK;
-}
-
-double  ScreenIndustry1::getStromstG()
-{
-    return stromstG;
-}
-
-double  ScreenIndustry1::getOffshore()
-{
-    return offshore;
-}
-
-double  ScreenIndustry1::getLeistung()
-{
-    return leistung;
-}
-
 //Setters:
 
 void ScreenIndustry1::setConsumption(int _new)

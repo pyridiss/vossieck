@@ -10,15 +10,10 @@ class ScreenHome2 : public QWidget
 public:
     explicit ScreenHome2(QWidget *parent = 0);
 
-private:
+public:
     int     surface;
     QString direction;
     int     angle;
-
-public:
-    int     getSurface();
-    QString getDirection();
-    int     getAngle();
 
 signals:
 
