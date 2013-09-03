@@ -10,6 +10,8 @@
 //Defined in main.cpp
 int getScreenWidth();
 int getScreenHeight();
+QString toStr(int);
+QString toStr(double);
 
 MainWindow::MainWindow(QWidget *parent)
     : QWidget(parent)
@@ -150,18 +152,18 @@ void MainWindow::createDataString()
     str += "&";
 
     //Screen Home 1
-    str += "sh1-en_cons=";      str += screenHome1->energy_consumption;                 str += "&";
-    str += "sh1-en_price=";     str += screenHome1->energy_price;                       str += "&";
-    str += "sh1-en_bprice=";    str += screenHome1->energy_basePrice;                   str += "&";
-    str += "sh1-he_cons=";      str += screenHome1->heat_consumption;                   str += "&";
-    str += "sh1-he_price=";     str += screenHome1->heat_price;                         str += "&";
+    str += "sh1-en_cons=";      str += toStr(screenHome1->energy_consumption);          str += "&";
+    str += "sh1-en_price=";     str += toStr(screenHome1->energy_price);                str += "&";
+    str += "sh1-en_bprice=";    str += toStr(screenHome1->energy_basePrice);            str += "&";
+    str += "sh1-he_cons=";      str += toStr(screenHome1->heat_consumption);            str += "&";
+    str += "sh1-he_price=";     str += toStr(screenHome1->heat_price);                  str += "&";
     str += "sh1-gas=";          str += (screenHome1->gasSelected) ? "true" : "false";   str += "&";
     str += "sh1-hotwater=";     str += (screenHome1->withHotWater) ? "true" : "false";  str += "&";
 
     //Screen Home 2
-    str += "sh2-surf=";     str += screenHome2->surface;    str += "&";
+    str += "sh2-surf=";     str += toStr(screenHome2->surface);    str += "&";
     str += "sh2-dir=";      str += screenHome2->direction;  str += "&";
-    str += "sh2-angle";     str += screenHome2->angle;      str += "&";
+    str += "sh2-angle=";    str += toStr(screenHome2->angle);      str += "&";
 
     //Screen Home 3
     str += "sh3-mehr=";     str += (screenHome3->mehrFamHausChecked) ? "true" : "false";    str += "&";
@@ -176,10 +178,10 @@ void MainWindow::createDataString()
     str += "si1-ntap=";     str += screenIndustry1->nTArbPreis;                         str += "&";
     str += "si1-netz=";     str += screenIndustry1->netzkosten;                         str += "&";
     str += "si1-eeg=";      str += (screenIndustry1->checkedEEG) ? "true" : "false";    str += "&";
-    str += "si1-kwk";       str += screenIndustry1->kWK;                                str += "&";
-    str += "si1-strsmg";    str += screenIndustry1->stromstG;                           str += "&";
-    str += "si1-off";       str += screenIndustry1->offshore;                           str += "&";
-    str += "si1-leist";     str += screenIndustry1->leistung;                           str += "&";
+    str += "si1-kwk=";      str += screenIndustry1->kWK;                                str += "&";
+    str += "si1-strsmg=";   str += screenIndustry1->stromstG;                           str += "&";
+    str += "si1-off=";      str += screenIndustry1->offshore;                           str += "&";
+    str += "si1-leist=";    str += screenIndustry1->leistung;                           str += "&";
 
     //Screen Industry 2
 

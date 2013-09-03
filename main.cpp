@@ -3,6 +3,8 @@
 #include <QDesktopWidget>
 #include <QIcon>
 
+#include <sstream>
+
 #include "mainwindow.h"
 
 using namespace std;
@@ -17,6 +19,23 @@ int getScreenWidth()
 int getScreenHeight()
 {
     return desktop->availableGeometry().height();
+}
+
+QString toStr(int i)
+{
+    stringstream out;
+    out << i;
+    QString str(out.str().c_str());
+    return str;
+}
+
+QString toStr(double d)
+{
+    stringstream out;
+    out.precision(8);
+    out << d;
+    QString str(out.str().c_str());
+    return str;
 }
 
 /* Main function */

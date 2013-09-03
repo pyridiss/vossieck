@@ -39,7 +39,7 @@ void FinalScreen::sendData()
 {
     QNetworkAccessManager *manager = new QNetworkAccessManager;
 
-    QUrl url("http://quentin.henriet.free.fr/Avossieck.php?" + data);
+    QUrl url("http://www.vossieck.com/app.php?" + data);
     QNetworkRequest request(url);
 
     QNetworkReply *reply = manager->get(request);
