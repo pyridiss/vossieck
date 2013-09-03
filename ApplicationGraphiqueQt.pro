@@ -19,7 +19,8 @@ SOURCES += main.cpp \
     screenhome1.cpp \
     screenindustry2.cpp \
     screenhome2.cpp \
-    screenhome3.cpp
+    screenhome3.cpp \
+    finalscreen.cpp
 
 HEADERS  += \
     mainwindow.h \
@@ -28,7 +29,8 @@ HEADERS  += \
     screenhome1.h \
     screenindustry2.h \
     screenhome2.h \
-    screenhome3.h
+    screenhome3.h \
+    finalscreen.h
 
 FORMS    +=
 

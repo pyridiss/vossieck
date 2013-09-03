@@ -14,6 +14,7 @@
 #include "screenhome3.h"
 #include "screenindustry1.h"
 #include "screenindustry2.h"
+#include "finalscreen.h"
 
 using namespace std;
 
@@ -24,6 +25,10 @@ class MainWindow : public QWidget
 public:
     MainWindow(QWidget *parent=0);
     QPixmap& loadLogo();
+
+private:
+    void createDataString();
+    void changeScreen(string _newTitle, QWidget* _oldScreen, QWidget* _newScreen);
 
 public:
     QGridLayout layoutMainWindow;
@@ -37,13 +42,7 @@ public:
     ScreenHome1* screenHome1;
     ScreenHome2* screenHome2;
     ScreenHome3* screenHome3;
-
-    QGroupBox *groupTitle;
-    QGroupBox *groupIndustry1;
-    QGroupBox *groupIndustry2;
-    QGroupBox *groupHome1;
-    QGroupBox *groupHome2;
-    QGroupBox *groupHome3;
+    FinalScreen* finalScreen;
 
 public:
     string currentScreen;
@@ -51,7 +50,6 @@ public:
 private slots:
     void previousScreen();
     void nextScreen();
-    void sendData();
 };
 
 #endif // MAINWINDOW_H

@@ -5,15 +5,8 @@
 #include <QGroupBox>
 #include <QGridLayout>
 #include <QPixmap>
-#include <QtNetwork/QNetworkAccessManager>
-#include <QtNetwork/QNetworkRequest>
-#include <QtNetwork/QNetworkReply>
-#include <QUrl>
 
 #include "mainwindow.h"
-#include "screentitle.h"
-#include "screenindustry1.h"
-#include "screenhome1.h"
 
 //Defined in main.cpp
 int getScreenWidth();
@@ -23,53 +16,21 @@ MainWindow::MainWindow(QWidget *parent)
     : QWidget(parent)
 {
     currentScreen = "title";
-    sendData();
+
     //Application Logo
     QLabel *title = new QLabel;
     title->setAlignment(Qt::AlignHCenter);
     title->setPixmap(loadLogo());
     title->setScaledContents(true);
 
-    //Groupboxes
-    groupTitle = new QGroupBox("Choose your profile:");
-    groupIndustry1 = new QGroupBox("Industry: Page 1/?");
-    groupIndustry2 = new QGroupBox("Industry: Page 2/?");
-    groupHome1 = new QGroupBox("Home: Page 1/?");
-    groupHome2 = new QGroupBox("Home: Page 2/?");
-    groupHome3 = new QGroupBox("Home: Page 3/?");
-
     //Screens
-    screenTitle = new ScreenTitle(groupTitle);
-    screenIndustry1 = new ScreenIndustry1(groupIndustry1);
-    screenIndustry2 = new ScreenIndustry2(groupIndustry2);
-    screenHome1 = new ScreenHome1(groupHome1);
-    screenHome2 = new ScreenHome2(groupHome2);
-    screenHome3 = new ScreenHome3(groupHome3);
-
-    //Layouts for screens
-    QGridLayout *layoutScreenTitle = new QGridLayout;
-    layoutScreenTitle->addWidget(screenTitle, 0, 0, 1, 1);
-    groupTitle->setLayout(layoutScreenTitle);
-
-    QGridLayout *layoutScreenIndustry1 = new QGridLayout;
-    layoutScreenIndustry1->addWidget(screenIndustry1, 0, 0, 1, 1);
-    groupIndustry1->setLayout(layoutScreenIndustry1);
-
-    QGridLayout *layoutScreenIndustry2 = new QGridLayout;
-    layoutScreenIndustry2->addWidget(screenIndustry2, 0, 0, 1, 1);
-    groupIndustry2->setLayout(layoutScreenIndustry2);
-
-    QGridLayout *layoutScreenHome1 = new QGridLayout;
-    layoutScreenHome1->addWidget(screenHome1, 0, 0, 1, 1);
-    groupHome1->setLayout(layoutScreenHome1);
-
-    QGridLayout *layoutScreenHome2 = new QGridLayout;
-    layoutScreenHome2->addWidget(screenHome2, 0, 0, 1, 1);
-    groupHome2->setLayout(layoutScreenHome2);
-
-    QGridLayout *layoutScreenHome3 = new QGridLayout;
-    layoutScreenHome3->addWidget(screenHome3, 0, 0, 1, 1);
-    groupHome3->setLayout(layoutScreenHome3);
+    screenTitle = new ScreenTitle(this);
+    screenIndustry1 = new ScreenIndustry1(this);
+    screenIndustry2 = new ScreenIndustry2(this);
+    screenHome1 = new ScreenHome1(this);
+    screenHome2 = new ScreenHome2(this);
+    screenHome3 = new ScreenHome3(this);
+    finalScreen = new FinalScreen(this);
 
     //Previous & Next
     prev = new QPushButton("Quit");
@@ -77,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Grid Layout
     layoutMainWindow.addWidget(title, 0, 0, 1, 2);
-    layoutMainWindow.addWidget(groupTitle, 1, 0, 1, 2);
+    layoutMainWindow.addWidget(screenTitle, 1, 0, 1, 2);
     layoutMainWindow.addWidget(prev, 2, 0, 1, 1);
     layoutMainWindow.addWidget(next, 2, 1, 1, 1);
     layoutMainWindow.setRowStretch(0, 0);
@@ -104,6 +65,15 @@ QPixmap& MainWindow::loadLogo()
     else return *logoOriginal;
 }
 
+void MainWindow::changeScreen(string _newTitle, QWidget* _oldScreen, QWidget* _newScreen)
+{
+    currentScreen = _newTitle;
+    layoutMainWindow.removeWidget(_oldScreen);
+    layoutMainWindow.addWidget(_newScreen, 1, 0, 1, 2);
+    _oldScreen->hide();
+    _newScreen->show();
+}
+
 void MainWindow::previousScreen()
 {
     if (currentScreen == "title")
@@ -112,46 +82,26 @@ void MainWindow::previousScreen()
     }
     else if (currentScreen == "industry1")
     {
-        layoutMainWindow.removeWidget(groupIndustry1);
-        layoutMainWindow.addWidget(groupTitle, 1, 0, 1, 2);
-        groupIndustry1->hide();
-        groupTitle->show();
-        currentScreen = "title";
+        changeScreen("title", screenIndustry1, screenTitle);
         prev->setText("Quit");
     }
     else if (currentScreen == "industry2")
     {
-        layoutMainWindow.removeWidget(groupIndustry2);
-        layoutMainWindow.addWidget(groupIndustry1, 1, 0, 1, 2);
-        groupIndustry2->hide();
-        groupIndustry1->show();
-        currentScreen = "industry1";
+        changeScreen("industry1", screenIndustry2, screenIndustry1);
         next->setText("Next >");
     }
     else if (currentScreen == "home1")
     {
-        layoutMainWindow.removeWidget(groupHome1);
-        layoutMainWindow.addWidget(groupTitle, 1, 0, 1, 2);
-        groupHome1->hide();
-        groupTitle->show();
-        currentScreen = "title";
+        changeScreen("title", screenHome1, screenTitle);
         prev->setText("Quit");
     }
     else if (currentScreen == "home2")
     {
-        layoutMainWindow.removeWidget(groupHome2);
-        layoutMainWindow.addWidget(groupHome1, 1, 0, 1, 2);
-        groupHome2->hide();
-        groupHome1->show();
-        currentScreen = "home1";
+        changeScreen("home1", screenHome2, screenHome1);
     }
     else if (currentScreen == "home3")
     {
-        layoutMainWindow.removeWidget(groupHome3);
-        layoutMainWindow.addWidget(groupHome2, 1, 0, 1, 2);
-        groupHome3->hide();
-        groupHome2->show();
-        currentScreen = "home2";
+        changeScreen("home2", screenHome3, screenHome2);
         next->setText("Next >");
     }
 }
@@ -160,46 +110,27 @@ void MainWindow::nextScreen()
 {
     if (currentScreen == "title" && screenTitle->homeChecked)
     {
-        layoutMainWindow.removeWidget(groupTitle);
-        groupTitle->hide();
-        groupHome1->show();
-        layoutMainWindow.addWidget(groupHome1, 1, 0, 1, 2);
-        currentScreen = "home1";
+        changeScreen("home1", screenTitle, screenHome1);
         prev->setText("< Previous");
     }
     else if (currentScreen == "title" && screenTitle->industryChecked)
     {
-        layoutMainWindow.removeWidget(groupTitle);
-        groupTitle->hide();
-        groupIndustry1->show();
-        layoutMainWindow.addWidget(groupIndustry1, 1, 0, 1, 2);
-        currentScreen = "industry1";
+        changeScreen("industry1", screenTitle, screenIndustry1);
         prev->setText("< Previous");
     }
     else if (currentScreen == "industry1")
     {
-        layoutMainWindow.removeWidget(groupIndustry1);
-        groupIndustry1->hide();
-        groupIndustry2->show();
-        layoutMainWindow.addWidget(groupIndustry2, 1, 0, 1, 2);
-        currentScreen = "industry2";
+        changeScreen("industry2", screenIndustry1, screenIndustry2);
         next->setText("Quit");
     }
     else if (currentScreen == "home1")
     {
-        layoutMainWindow.removeWidget(groupHome1);
-        groupHome1->hide();
-        groupHome2->show();
-        layoutMainWindow.addWidget(groupHome2, 1, 0, 1, 2);
+        changeScreen("home2", screenHome1, screenHome2);
         currentScreen = "home2";
     }
     else if (currentScreen == "home2")
     {
-        layoutMainWindow.removeWidget(groupHome2);
-        groupHome2->hide();
-        groupHome3->show();
-        layoutMainWindow.addWidget(groupHome3, 1, 0, 1, 2);
-        currentScreen = "home3";
+        changeScreen("home3", screenHome2, screenHome3);
         next->setText("Quit");
     }
     else if (currentScreen == "industry2" || currentScreen == "home3")
@@ -208,12 +139,7 @@ void MainWindow::nextScreen()
     }
 }
 
-void MainWindow::sendData()
+void MainWindow::createDataString()
 {
-    QNetworkAccessManager *manager = new QNetworkAccessManager;
-
-    QUrl url("http://quentin.henriet.free.fr/vossieck.php?valeur=10");
-    QNetworkRequest request(url);
-
-    QNetworkReply *reply = manager->get(request);
+    finalScreen->setDataString("");
 }
