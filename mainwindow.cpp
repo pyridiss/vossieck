@@ -26,12 +26,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Screens
     screenTitle = new ScreenTitle(this);
-    screenIndustry1 = new ScreenIndustry1(this);
-    screenIndustry2 = new ScreenIndustry2(this);
-    screenHome1 = new ScreenHome1(this);
-    screenHome2 = new ScreenHome2(this);
-    screenHome3 = new ScreenHome3(this);
-    finalScreen = new FinalScreen(this);
+    screenIndustry1 = new ScreenIndustry1(this);    screenIndustry1->hide();
+    screenIndustry2 = new ScreenIndustry2(this);    screenIndustry2->hide();
+    screenHome1 = new ScreenHome1(this);            screenHome1->hide();
+    screenHome2 = new ScreenHome2(this);            screenHome2->hide();
+    screenHome3 = new ScreenHome3(this);            screenHome3->hide();
+    finalScreen = new FinalScreen(this);            finalScreen->hide();
 
     //Previous & Next
     prev = new QPushButton("Quit");
@@ -40,6 +40,12 @@ MainWindow::MainWindow(QWidget *parent)
     //Grid Layout
     layoutMainWindow.addWidget(title, 0, 0, 1, 2);
     layoutMainWindow.addWidget(screenTitle, 1, 0, 1, 2);
+    layoutMainWindow.addWidget(screenIndustry1, 1, 0, 1, 2);
+    layoutMainWindow.addWidget(screenIndustry2, 1, 0, 1, 2);
+    layoutMainWindow.addWidget(screenHome1, 1, 0, 1, 2);
+    layoutMainWindow.addWidget(screenHome2, 1, 0, 1, 2);
+    layoutMainWindow.addWidget(screenHome3, 1, 0, 1, 2);
+    layoutMainWindow.addWidget(finalScreen, 1, 0, 1, 2);
     layoutMainWindow.addWidget(prev, 2, 0, 1, 1);
     layoutMainWindow.addWidget(next, 2, 1, 1, 1);
     layoutMainWindow.setRowStretch(0, 0);
