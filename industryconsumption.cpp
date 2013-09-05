@@ -21,7 +21,6 @@ IndustryConsumption::IndustryConsumption(QWidget *parent) :
     offshore = 0;
     leistung = 0;
 
-
     QLabel *labelEnergy = new QLabel("<span style='font-size: 20pt;'>Energy</span>");
     labelEnergy->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 
@@ -90,14 +89,11 @@ IndustryConsumption::IndustryConsumption(QWidget *parent) :
     layout->addWidget(labelOffshore,    8, 0, 1, 1);
     layout->addWidget(labelLeistung,    9, 0, 1, 1);
 
-
     layout->addWidget(lineConsumption,  1, 1, 1, 2);
     layout->addWidget(lineHTArbPreis,   2, 1, 1, 2);
     layout->addWidget(lineNTArbPreis,   3, 1, 1, 2);
     layout->addWidget(lineNetzkosten,   4, 1, 1, 2);
-
     layout->addWidget(radioEEG,         5, 2, 1, 1);
-
     layout->addWidget(lineKWK,          6, 1, 1, 2);
     layout->addWidget(lineStromstG,     7, 1, 1, 2);
     layout->addWidget(lineOffshore,     8, 1, 1, 2);
