@@ -24,41 +24,41 @@ ScreenIndustry2::ScreenIndustry2(QWidget *parent) :
     QLabel *labelEnergy = new QLabel("<span style='font-size: 20pt;'>Energy</span>");
     labelEnergy->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 
-    QLabel *labelConsumption =  new QLabel("Consumption");
-    QLabel *labelHTArbPreis =   new QLabel("HT Arbeitspreis");
-    QLabel *labelNTArbPreis =   new QLabel("NT Arbeitspreis");
-    QLabel *labelNetzkosten =   new QLabel("Netzkosten");
-    QLabel *labelEEG =          new QLabel("EEG-Umlage-Befreit:");
-    QLabel *labelKWK =          new QLabel("KWK");
-    QLabel *labelStromstG =     new QLabel("§19 Stromst-G.");
-    QLabel *labelOffshore =     new QLabel("OffshoreUmlage");
-    QLabel *labelLeistung =     new QLabel("Leistungskosten");
+    QLabel *labelConsumption =  new QLabel("Consumption");          labelConsumption->setAlignment(Qt::AlignRight);
+    QLabel *labelHTArbPreis =   new QLabel("HT Arbeitspreis");      labelHTArbPreis->setAlignment(Qt::AlignRight);
+    QLabel *labelNTArbPreis =   new QLabel("NT Arbeitspreis");      labelNTArbPreis->setAlignment(Qt::AlignRight);
+    QLabel *labelNetzkosten =   new QLabel("Netzkosten");           labelNetzkosten->setAlignment(Qt::AlignRight);
+    QLabel *labelEEG =          new QLabel("EEG-Umlage-Befreit:");  labelEEG->setAlignment(Qt::AlignRight);
+    QLabel *labelKWK =          new QLabel("KWK");                  labelKWK->setAlignment(Qt::AlignRight);
+    QLabel *labelStromstG =     new QLabel("§19 Stromst-G.");       labelStromstG->setAlignment(Qt::AlignRight);
+    QLabel *labelOffshore =     new QLabel("OffshoreUmlage");       labelOffshore->setAlignment(Qt::AlignRight);
+    QLabel *labelLeistung =     new QLabel("Leistungskosten");      labelLeistung->setAlignment(Qt::AlignRight);
 
-    QLineEdit *lineConsumption =      new QLineEdit();
+    QLineEdit *lineConsumption =    new QLineEdit();
     QLabel *unitConsumption = new QLabel("kWh/year");
 
-    QLineEdit *lineHTArbPreis = new QLineEdit();
+    QLineEdit *lineHTArbPreis =     new QLineEdit();
     QLabel *unitHTArbPreis = new QLabel("c€/kWh");
 
-    QLineEdit *lineNTArbPreis = new QLineEdit();
+    QLineEdit *lineNTArbPreis =     new QLineEdit();
     QLabel *unitNTArbPreis = new QLabel("c€/kWh");
 
-    QLineEdit *lineNetzkosten = new QLineEdit();
+    QLineEdit *lineNetzkosten =     new QLineEdit();
     QLabel *unitNetzkosten = new QLabel("€/Monat");
 
-    QLineEdit *lineKWK =        new QLineEdit();
+    QLineEdit *lineKWK =            new QLineEdit();
     QLabel *unitKWK = new QLabel("€");
 
-    QLineEdit *lineStromstG =   new QLineEdit();
+    QLineEdit *lineStromstG =       new QLineEdit();
     QLabel *unitStromstG = new QLabel("€");
 
-    QLineEdit *lineOffshore =   new QLineEdit();
+    QLineEdit *lineOffshore =       new QLineEdit();
     QLabel *unitOffshore = new QLabel("€");
 
-    QLineEdit *lineLeistung =   new QLineEdit();
+    QLineEdit *lineLeistung =       new QLineEdit();
     QLabel *unitLeistung = new QLabel("€/Monat");
 
-    QCheckBox *radioEEG =       new QCheckBox();
+    QCheckBox *radioEEG =           new QCheckBox();
 
     QGridLayout *layout = new QGridLayout;
 
@@ -67,7 +67,7 @@ ScreenIndustry2::ScreenIndustry2(QWidget *parent) :
     layout->addWidget(labelHTArbPreis,  2, 0, 1, 1);
     layout->addWidget(labelNTArbPreis,  3, 0, 1, 1);
     layout->addWidget(labelNetzkosten,  4, 0, 1, 1);
-    layout->addWidget(labelEEG,         5, 0, 1, 2);
+    layout->addWidget(labelEEG,         5, 0, 1, 1);
     layout->addWidget(labelKWK,         6, 0, 1, 1);
     layout->addWidget(labelStromstG,    7, 0, 1, 1);
     layout->addWidget(labelOffshore,    8, 0, 1, 1);
@@ -77,35 +77,35 @@ ScreenIndustry2::ScreenIndustry2(QWidget *parent) :
     layout->addWidget(lineHTArbPreis,   2, 1, 1, 1);
     layout->addWidget(lineNTArbPreis,   3, 1, 1, 1);
     layout->addWidget(lineNetzkosten,   4, 1, 1, 1);
-    layout->addWidget(radioEEG,         5, 2, 1, 1);
+    layout->addWidget(radioEEG,         5, 1, 1, 1);
     layout->addWidget(lineKWK,          6, 1, 1, 1);
     layout->addWidget(lineStromstG,     7, 1, 1, 1);
     layout->addWidget(lineOffshore,     8, 1, 1, 1);
     layout->addWidget(lineLeistung,     9, 1, 1, 1);
 
     layout->addWidget(unitConsumption,  1, 2, 1, 1);
-    layout->addWidget(unitHTArbPreis,  2, 2, 1, 1);
-    layout->addWidget(unitNTArbPreis,  3, 2, 1, 1);
-    layout->addWidget(unitNetzkosten,  4, 2, 1, 1);
-    layout->addWidget(unitKWK,  6, 2, 1, 1);
-    layout->addWidget(unitStromstG,  7, 2, 1, 1);
-    layout->addWidget(unitOffshore,  8, 2, 1, 1);
-    layout->addWidget(unitLeistung,  9, 2, 1, 1);
+    layout->addWidget(unitHTArbPreis,   2, 2, 1, 1);
+    layout->addWidget(unitNTArbPreis,   3, 2, 1, 1);
+    layout->addWidget(unitNetzkosten,   4, 2, 1, 1);
+    layout->addWidget(unitKWK,          6, 2, 1, 1);
+    layout->addWidget(unitStromstG,     7, 2, 1, 1);
+    layout->addWidget(unitOffshore,     8, 2, 1, 1);
+    layout->addWidget(unitLeistung,     9, 2, 1, 1);
 
     layout->setRowStretch(0, 1);
     layout->setRowStretch(10, 1);
     setLayout(layout);
-/*
-    connect(lineConsumption,    SIGNAL(textEdited(QString)),      this, SLOT(setConsumption(int)));
-    connect(lineHTArbPreis,     SIGNAL(valueChanged(double)),   this, SLOT(setHTArbPreis(double)));
-    connect(lineNTArbPreis,     SIGNAL(valueChanged(double)),   this, SLOT(setNTArbPreis(double)));
-    connect(lineNetzkosten,     SIGNAL(valueChanged(double)),   this, SLOT(setNetzkosten(double)));
+
+    connect(lineConsumption,    SIGNAL(textEdited(QString)),    this, SLOT(setConsumption(QString)));
+    connect(lineHTArbPreis,     SIGNAL(textEdited(QString)),    this, SLOT(setHTArbPreis(QString)));
+    connect(lineNTArbPreis,     SIGNAL(textEdited(QString)),    this, SLOT(setNTArbPreis(QString)));
+    connect(lineNetzkosten,     SIGNAL(textEdited(QString)),    this, SLOT(setNetzkosten(QString)));
     connect(radioEEG,           SIGNAL(clicked(bool)),          this, SLOT(setCheckedEEG(bool)));
-    connect(lineKWK,            SIGNAL(valueChanged(double)),   this, SLOT(setKWK(double)));
-    connect(lineStromstG,       SIGNAL(valueChanged(double)),   this, SLOT(setStromstG(double)));
-    connect(lineOffshore,       SIGNAL(valueChanged(double)),   this, SLOT(setOffshore(double)));
-    connect(lineLeistung,       SIGNAL(valueChanged(double)),   this, SLOT(setLeistung(double)));
-*/
+    connect(lineKWK,            SIGNAL(textEdited(QString)),    this, SLOT(setKWK(QString)));
+    connect(lineStromstG,       SIGNAL(textEdited(QString)),    this, SLOT(setStromstG(QString)));
+    connect(lineOffshore,       SIGNAL(textEdited(QString)),    this, SLOT(setOffshore(QString)));
+    connect(lineLeistung,       SIGNAL(textEdited(QString)),    this, SLOT(setLeistung(QString)));
+
     //Signals to stop editing fields
     connect(lineConsumption,    SIGNAL(returnPressed()),      this, SLOT(setFocus()));
     connect(lineHTArbPreis,     SIGNAL(returnPressed()),      this, SLOT(setFocus()));
@@ -119,24 +119,24 @@ ScreenIndustry2::ScreenIndustry2(QWidget *parent) :
 
 //Setters:
 
-void ScreenIndustry2::setConsumption(int _new)
+void ScreenIndustry2::setConsumption(QString _new)
 {
-    consumption = _new;
+    consumption = _new.toInt();
 }
 
-void ScreenIndustry2::setHTArbPreis(double _new)
+void ScreenIndustry2::setHTArbPreis(QString _new)
 {
-    hTArbPreis = _new;
+    hTArbPreis = _new.toDouble();
 }
 
-void ScreenIndustry2::setNTArbPreis(double _new)
+void ScreenIndustry2::setNTArbPreis(QString _new)
 {
-    nTArbPreis = _new;
+    nTArbPreis = _new.toDouble();
 }
 
-void ScreenIndustry2::setNetzkosten(double _new)
+void ScreenIndustry2::setNetzkosten(QString _new)
 {
-    netzkosten = _new;
+    netzkosten = _new.toDouble();
 }
 
 void ScreenIndustry2::setCheckedEEG(bool _new)
@@ -144,22 +144,22 @@ void ScreenIndustry2::setCheckedEEG(bool _new)
     checkedEEG = _new;
 }
 
-void ScreenIndustry2::setKWK(double _new)
+void ScreenIndustry2::setKWK(QString _new)
 {
-    kWK = _new;
+    kWK = _new.toDouble();
 }
 
-void ScreenIndustry2::setStromstG(double _new)
+void ScreenIndustry2::setStromstG(QString _new)
 {
-    stromstG = _new;
+    stromstG = _new.toDouble();
 }
 
-void ScreenIndustry2::setOffshore(double _new)
+void ScreenIndustry2::setOffshore(QString _new)
 {
-    offshore = _new;
+    offshore = _new.toDouble();
 }
 
-void ScreenIndustry2::setLeistung(double _new)
+void ScreenIndustry2::setLeistung(QString _new)
 {
-    leistung = _new;
+    leistung = _new.toDouble();
 }

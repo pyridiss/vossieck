@@ -13,7 +13,7 @@
 FinalScreen::FinalScreen(QWidget *parent) :
     QWidget(parent)
 {
-    QLabel *label = new QLabel("<span style='font-size: 20pt;'>Personal informations</span>");
+    QLabel *label = new QLabel("<span style='font-size: 20pt;'>Personal information</span>");
     label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 
     QLabel *labelName   = new QLabel("Name");
