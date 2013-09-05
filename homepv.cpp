@@ -3,9 +3,9 @@
 #include <QSpinBox>
 #include <QComboBox>
 
-#include "screenhome2.h"
+#include "homepv.h"
 
-ScreenHome2::ScreenHome2(QWidget *parent) :
+HomePV::HomePV(QWidget *parent) :
     QWidget(parent)
 {
     surface = 0;
@@ -64,17 +64,17 @@ ScreenHome2::ScreenHome2(QWidget *parent) :
 
 //Setters:
 
-void ScreenHome2::setSurface(int _new)
+void HomePV::setSurface(int _new)
 {
     surface = _new;
 }
 
-void ScreenHome2::setDirection(QString _new)
+void HomePV::setDirection(QString _new)
 {
     direction = _new;
 }
 
-void ScreenHome2::setAngle(int _new)
+void HomePV::setAngle(int _new)
 {
     angle = _new;
 }

@@ -3,12 +3,12 @@
 
 #include <QWidget>
 
-class ScreenHome2 : public QWidget
+class HomePV : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit ScreenHome2(QWidget *parent = 0);
+    explicit HomePV(QWidget *parent = 0);
 
 public:
     int     surface;

@@ -6,9 +6,9 @@
 #include <QDoubleSpinBox>
 #include <QCheckBox>
 
-#include "screenindustry1.h"
+#include "industryconsumption.h"
 
-ScreenIndustry1::ScreenIndustry1(QWidget *parent) :
+IndustryConsumption::IndustryConsumption(QWidget *parent) :
     QWidget(parent)
 {
     consumption = 0;
@@ -130,47 +130,47 @@ ScreenIndustry1::ScreenIndustry1(QWidget *parent) :
 
 //Setters:
 
-void ScreenIndustry1::setConsumption(int _new)
+void IndustryConsumption::setConsumption(int _new)
 {
     consumption = _new;
 }
 
-void ScreenIndustry1::setHTArbPreis(double _new)
+void IndustryConsumption::setHTArbPreis(double _new)
 {
     hTArbPreis = _new;
 }
 
-void ScreenIndustry1::setNTArbPreis(double _new)
+void IndustryConsumption::setNTArbPreis(double _new)
 {
     nTArbPreis = _new;
 }
 
-void ScreenIndustry1::setNetzkosten(double _new)
+void IndustryConsumption::setNetzkosten(double _new)
 {
     netzkosten = _new;
 }
 
-void ScreenIndustry1::setCheckedEEG(bool _new)
+void IndustryConsumption::setCheckedEEG(bool _new)
 {
     checkedEEG = _new;
 }
 
-void ScreenIndustry1::setKWK(double _new)
+void IndustryConsumption::setKWK(double _new)
 {
     kWK = _new;
 }
 
-void ScreenIndustry1::setStromstG(double _new)
+void IndustryConsumption::setStromstG(double _new)
 {
     stromstG = _new;
 }
 
-void ScreenIndustry1::setOffshore(double _new)
+void IndustryConsumption::setOffshore(double _new)
 {
     offshore = _new;
 }
 
-void ScreenIndustry1::setLeistung(double _new)
+void IndustryConsumption::setLeistung(double _new)
 {
     leistung = _new;
 }

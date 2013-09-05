@@ -3,11 +3,11 @@
 
 #include <QWidget>
 
-class ScreenHome1 : public QWidget
+class HomeConsumption : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ScreenHome1(QWidget *parent = 0);
+    explicit HomeConsumption(QWidget *parent = 0);
 
 public:
     int     energy_consumption;

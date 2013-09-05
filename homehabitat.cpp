@@ -6,9 +6,9 @@
 
 #include <iostream>
 
-#include "screenhome3.h"
+#include "homehabitat.h"
 
-ScreenHome3::ScreenHome3(QWidget *parent)
+HomeHabitat::HomeHabitat(QWidget *parent)
     : QWidget(parent)
 {
     mehrFamHausChecked = false;
@@ -57,34 +57,34 @@ ScreenHome3::ScreenHome3(QWidget *parent)
 
 //Setters:
 
-void ScreenHome3::setMehrFamHausChecked()
+void HomeHabitat::setMehrFamHausChecked()
 {
     mehrFamHausChecked = true;
     einFamHausChecked = false;
     wohnungChecked = false;
 }
 
-void ScreenHome3::setEinFamHausChecked()
+void HomeHabitat::setEinFamHausChecked()
 {
     mehrFamHausChecked = false;
     einFamHausChecked = true;
     wohnungChecked = false;
 }
 
-void ScreenHome3::setWohnungChecked()
+void HomeHabitat::setWohnungChecked()
 {
     mehrFamHausChecked = false;
     einFamHausChecked = false;
     wohnungChecked = true;
 }
 
-void ScreenHome3::setEigentuemerChecked()
+void HomeHabitat::setEigentuemerChecked()
 {
     eigentuemerChecked = true;
     mieteChecked = false;
 }
 
-void ScreenHome3::setMieteChecked()
+void HomeHabitat::setMieteChecked()
 {
     eigentuemerChecked = false;
     mieteChecked = true;

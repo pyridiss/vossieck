@@ -3,11 +3,11 @@
 
 #include <QWidget>
 
-class ScreenIndustry1 : public QWidget
+class IndustryConsumption : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ScreenIndustry1(QWidget *parent = 0);
+    explicit IndustryConsumption(QWidget *parent = 0);
 
 public:
     int    consumption;

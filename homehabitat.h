@@ -3,11 +3,11 @@
 
 #include <QWidget>
 
-class ScreenHome3 : public QWidget
+class HomeHabitat : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ScreenHome3(QWidget *parent = 0);
+    explicit HomeHabitat(QWidget *parent = 0);
 
 public:
     bool mehrFamHausChecked;

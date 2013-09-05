@@ -5,9 +5,9 @@
 #include <QDoubleSpinBox>
 #include <QCheckBox>
 
-#include "screenhome1.h"
+#include "homeconsumption.h"
 
-ScreenHome1::ScreenHome1(QWidget *parent) :
+HomeConsumption::HomeConsumption(QWidget *parent) :
     QWidget(parent)
 {
     energy_consumption = 0;
@@ -106,42 +106,42 @@ ScreenHome1::ScreenHome1(QWidget *parent) :
 
 //Setters:
 
-void ScreenHome1::setEnergy_consumption(int _new)
+void HomeConsumption::setEnergy_consumption(int _new)
 {
     energy_consumption = _new;
 }
 
-void ScreenHome1::setEnergy_price(double _new)
+void HomeConsumption::setEnergy_price(double _new)
 {
     energy_price = _new;
 }
 
-void ScreenHome1::setEnergy_basePrice(double _new)
+void HomeConsumption::setEnergy_basePrice(double _new)
 {
     energy_basePrice = _new;
 }
 
-void ScreenHome1::setHeat_consumption(int _new)
+void HomeConsumption::setHeat_consumption(int _new)
 {
     heat_consumption = _new;
 }
 
-void ScreenHome1::setHeat_price(double _new)
+void HomeConsumption::setHeat_price(double _new)
 {
     heat_price = _new;
 }
 
-void ScreenHome1::checkGas()
+void HomeConsumption::checkGas()
 {
     gasSelected = true;
 }
 
-void ScreenHome1::checkOil()
+void HomeConsumption::checkOil()
 {
     gasSelected = false;
 }
 
-void ScreenHome1::checkHotWater(bool _new)
+void HomeConsumption::checkHotWater(bool _new)
 {
     withHotWater = _new;
 }

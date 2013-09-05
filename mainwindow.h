@@ -9,10 +9,10 @@
 #include <string>
 
 #include "screentitle.h"
-#include "screenhome1.h"
-#include "screenhome2.h"
-#include "screenhome3.h"
-#include "screenindustry1.h"
+#include "homeconsumption.h"
+#include "homepv.h"
+#include "homehabitat.h"
+#include "industryconsumption.h"
 #include "screenindustry2.h"
 #include "finalscreen.h"
 
@@ -36,13 +36,13 @@ public:
     QPushButton *prev;
     QPushButton *next;
 
-    ScreenTitle* screenTitle;
-    ScreenIndustry1* screenIndustry1;
-    ScreenIndustry2* screenIndustry2;
-    ScreenHome1* screenHome1;
-    ScreenHome2* screenHome2;
-    ScreenHome3* screenHome3;
-    FinalScreen* finalScreen;
+    ScreenTitle*            screenTitle;
+    IndustryConsumption*    industryConsumption;
+    ScreenIndustry2*        screenIndustry2;
+    HomeConsumption*        homeConsumption;
+    HomePV*                 homePV;
+    HomeHabitat*            homeHabitat;
+    FinalScreen*            finalScreen;
 
 public:
     string currentScreen;

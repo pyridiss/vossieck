@@ -15,22 +15,22 @@ TEMPLATE = app
 SOURCES += main.cpp \
     mainwindow.cpp \
     screentitle.cpp \
-    screenindustry1.cpp \
-    screenhome1.cpp \
     screenindustry2.cpp \
-    screenhome2.cpp \
-    screenhome3.cpp \
-    finalscreen.cpp
+    finalscreen.cpp \
+    homeconsumption.cpp \
+    homepv.cpp \
+    homehabitat.cpp \
+    industryconsumption.cpp
 
 HEADERS  += \
     mainwindow.h \
     screentitle.h \
-    screenindustry1.h \
-    screenhome1.h \
     screenindustry2.h \
-    screenhome2.h \
-    screenhome3.h \
-    finalscreen.h
+    finalscreen.h \
+    homeconsumption.h \
+    homepv.h \
+    homehabitat.h \
+    industryconsumption.h
 
 FORMS    +=
 
