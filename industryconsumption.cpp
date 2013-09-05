@@ -15,7 +15,7 @@ IndustryConsumption::IndustryConsumption(QWidget *parent) :
     hTArbPreis = 0;
     nTArbPreis = 0;
     netzkosten = 0;
-    checkedEEG = false;
+    eEG = false;
     kWK = 0;
     stromstG = 0;
     offshore = 0;
@@ -100,7 +100,7 @@ IndustryConsumption::IndustryConsumption(QWidget *parent) :
     connect(lineHTArbPreis,     SIGNAL(textEdited(QString)),    this, SLOT(setHTArbPreis(QString)));
     connect(lineNTArbPreis,     SIGNAL(textEdited(QString)),    this, SLOT(setNTArbPreis(QString)));
     connect(lineNetzkosten,     SIGNAL(textEdited(QString)),    this, SLOT(setNetzkosten(QString)));
-    connect(radioEEG,           SIGNAL(clicked(bool)),          this, SLOT(setCheckedEEG(bool)));
+    connect(radioEEG,           SIGNAL(clicked(bool)),          this, SLOT(setEEG(bool)));
     connect(lineKWK,            SIGNAL(textEdited(QString)),    this, SLOT(setKWK(QString)));
     connect(lineStromstG,       SIGNAL(textEdited(QString)),    this, SLOT(setStromstG(QString)));
     connect(lineOffshore,       SIGNAL(textEdited(QString)),    this, SLOT(setOffshore(QString)));
@@ -139,9 +139,9 @@ void IndustryConsumption::setNetzkosten(QString _new)
     netzkosten = _new.toDouble();
 }
 
-void IndustryConsumption::setCheckedEEG(bool _new)
+void IndustryConsumption::setEEG(bool _new)
 {
-    checkedEEG = _new;
+    eEG = _new;
 }
 
 void IndustryConsumption::setKWK(QString _new)

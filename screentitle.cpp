@@ -10,8 +10,8 @@
 ScreenTitle::ScreenTitle(QWidget *parent)
     : QWidget(parent)
 {
-    homeChecked = false;
-    industryChecked = false;
+    home = false;
+    industry = false;
 
     QLabel* text = new QLabel("<p><span style='font-weight:bold'>Introduction</span><br />\
                               This text introduces the program.</p>\
@@ -29,18 +29,18 @@ ScreenTitle::ScreenTitle(QWidget *parent)
     layout->setStretch(2, 1);
     setLayout(layout);
 
-    connect(radioIndustry,  SIGNAL(clicked()), this, SLOT(checkIndustry()));
-    connect(radioHome,      SIGNAL(clicked()), this, SLOT(checkHome()));
+    connect(radioIndustry,  SIGNAL(clicked()), this, SLOT(setIndustry()));
+    connect(radioHome,      SIGNAL(clicked()), this, SLOT(setHome()));
 }
 
-void ScreenTitle::checkIndustry()
+void ScreenTitle::setIndustry()
 {
-    homeChecked = false;
-    industryChecked = true;
+    home = false;
+    industry = true;
 }
 
-void ScreenTitle::checkHome()
+void ScreenTitle::setHome()
 {
-    homeChecked = true;
-    industryChecked = false;
+    home = true;
+    industry = false;
 }

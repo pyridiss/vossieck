@@ -14,7 +14,7 @@ public:
     double hTArbPreis;
     double nTArbPreis;
     double netzkosten;
-    bool   checkedEEG;
+    bool   eEG;
     double kWK;
     double stromstG;
     double offshore;
@@ -27,7 +27,7 @@ public slots:
     void setHTArbPreis(QString _new);
     void setNTArbPreis(QString _new);
     void setNetzkosten(QString _new);
-    void setCheckedEEG(bool _new);
+    void setEEG(bool _new);
     void setKWK(QString _new);
     void setStromstG(QString _new);
     void setOffshore(QString _new);

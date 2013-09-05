@@ -15,8 +15,9 @@ HomeConsumption::HomeConsumption(QWidget *parent) :
     energy_basePrice = 0;
     heat_consumption = 0;
     heat_price = 0;
-    gasSelected = false;
-    withHotWater = false;
+    gas = false;
+    oil = false;
+    hotWater = false;
 
     QLabel *labelEnergy = new QLabel("<span style='font-size: 20pt;'>Energy</span>");
     labelEnergy->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
@@ -92,9 +93,9 @@ HomeConsumption::HomeConsumption(QWidget *parent) :
     connect(lineEnergyBasePrice,    SIGNAL(valueChanged(double)),   this, SLOT(setEnergy_basePrice(double)));
     connect(lineHeatConsumption,    SIGNAL(valueChanged(int)),      this, SLOT(setHeat_consumption(int)));
     connect(lineHeatPrice,          SIGNAL(valueChanged(double)),   this, SLOT(setHeat_price(double)));
-    connect(radioGas,               SIGNAL(clicked()),              this, SLOT(checkGas()));
-    connect(radioOil,               SIGNAL(clicked()),              this, SLOT(checkOil()));
-    connect(checkHotWater,          SIGNAL(clicked(bool)),          this, SLOT(checkHotWater(bool)));
+    connect(radioGas,               SIGNAL(clicked()),              this, SLOT(setGas()));
+    connect(radioOil,               SIGNAL(clicked()),              this, SLOT(setOil()));
+    connect(checkHotWater,          SIGNAL(clicked(bool)),          this, SLOT(setHotWater(bool)));
 
     //Signals to stop editing fields
     connect(lineEnergyConsumption,  SIGNAL(editingFinished()),      this, SLOT(setFocus()));
@@ -131,17 +132,19 @@ void HomeConsumption::setHeat_price(double _new)
     heat_price = _new;
 }
 
-void HomeConsumption::checkGas()
+void HomeConsumption::setGas()
 {
-    gasSelected = true;
+    gas = true;
+    oil = false;
 }
 
-void HomeConsumption::checkOil()
+void HomeConsumption::setOil()
 {
-    gasSelected = false;
+    gas = false;
+    oil = true;
 }
 
-void HomeConsumption::checkHotWater(bool _new)
+void HomeConsumption::setHotWater(bool _new)
 {
-    withHotWater = _new;
+    hotWater = _new;
 }

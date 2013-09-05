@@ -10,22 +10,22 @@ public:
     explicit HomeHabitat(QWidget *parent = 0);
 
 public:
-    bool mehrFamHausChecked;
-    bool einFamHausChecked;
-    bool wohnungChecked;
+    bool mehrFamHaus;
+    bool einFamHaus;
+    bool wohnung;
 
-    bool eigentuemerChecked;
-    bool mieteChecked;
+    bool eigentuemer;
+    bool miete;
 
 signals:
     
 public slots:
-    void setMehrFamHausChecked();
-    void setEinFamHausChecked();
-    void setWohnungChecked();
+    void setMehrFamHaus();
+    void setEinFamHaus();
+    void setWohnung();
 
-    void setEigentuemerChecked();
-    void setMieteChecked();
+    void setEigentuemer();
+    void setMiete();
 };
 
 #endif // SCREENHOME3_H

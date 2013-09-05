@@ -11,11 +11,11 @@
 HomeHabitat::HomeHabitat(QWidget *parent)
     : QWidget(parent)
 {
-    mehrFamHausChecked = false;
-    einFamHausChecked = false;
-    wohnungChecked = false;
-    eigentuemerChecked = false;
-    mieteChecked = false;
+    mehrFamHaus = false;
+    einFamHaus = false;
+    wohnung = false;
+    eigentuemer = false;
+    miete = false;
 
     QLabel* labelHaus =  new QLabel("<span style='font-size:20pt;'>Wohnsituation</span>");
     QLabel* labelEigen = new QLabel("<span style='font-size:20pt;'>Eigentümer / Miete</span>");
@@ -48,44 +48,44 @@ HomeHabitat::HomeHabitat(QWidget *parent)
     layout->addWidget(groupEigen);
     setLayout(layout);
 
-    connect(radioMehrFamHaus,   SIGNAL(clicked()), this, SLOT(setMehrFamHausChecked()));
-    connect(radioEinFamHaus,    SIGNAL(clicked()), this, SLOT(setEinFamHausChecked()));
-    connect(radioWohnung,       SIGNAL(clicked()), this, SLOT(setWohnungChecked()));
-    connect(radioEigentuemer,   SIGNAL(clicked()), this, SLOT(setEigentuemerChecked()));
-    connect(radioMiete,         SIGNAL(clicked()), this, SLOT(setMieteChecked()));
+    connect(radioMehrFamHaus,   SIGNAL(clicked()), this, SLOT(setMehrFamHaus()));
+    connect(radioEinFamHaus,    SIGNAL(clicked()), this, SLOT(setEinFamHaus()));
+    connect(radioWohnung,       SIGNAL(clicked()), this, SLOT(setWohnung()));
+    connect(radioEigentuemer,   SIGNAL(clicked()), this, SLOT(setEigentuemer()));
+    connect(radioMiete,         SIGNAL(clicked()), this, SLOT(setMiete()));
 }
 
 //Setters:
 
-void HomeHabitat::setMehrFamHausChecked()
+void HomeHabitat::setMehrFamHaus()
 {
-    mehrFamHausChecked = true;
-    einFamHausChecked = false;
-    wohnungChecked = false;
+    mehrFamHaus = true;
+    einFamHaus = false;
+    wohnung = false;
 }
 
-void HomeHabitat::setEinFamHausChecked()
+void HomeHabitat::setEinFamHaus()
 {
-    mehrFamHausChecked = false;
-    einFamHausChecked = true;
-    wohnungChecked = false;
+    mehrFamHaus = false;
+    einFamHaus = true;
+    wohnung = false;
 }
 
-void HomeHabitat::setWohnungChecked()
+void HomeHabitat::setWohnung()
 {
-    mehrFamHausChecked = false;
-    einFamHausChecked = false;
-    wohnungChecked = true;
+    mehrFamHaus = false;
+    einFamHaus = false;
+    wohnung = true;
 }
 
-void HomeHabitat::setEigentuemerChecked()
+void HomeHabitat::setEigentuemer()
 {
-    eigentuemerChecked = true;
-    mieteChecked = false;
+    eigentuemer = true;
+    miete = false;
 }
 
-void HomeHabitat::setMieteChecked()
+void HomeHabitat::setMiete()
 {
-    eigentuemerChecked = false;
-    mieteChecked = true;
+    eigentuemer = false;
+    miete = true;
 }

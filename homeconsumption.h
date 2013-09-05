@@ -15,8 +15,9 @@ public:
     double  energy_basePrice;
     int     heat_consumption;
     double  heat_price;
-    bool    gasSelected;
-    bool    withHotWater;
+    bool    gas;
+    bool    oil;
+    bool    hotWater;
 
 signals:
 
@@ -26,9 +27,9 @@ public slots:
     void setEnergy_basePrice(double _new);
     void setHeat_consumption(int _new);
     void setHeat_price(double _new);
-    void checkGas();
-    void checkOil();
-    void checkHotWater(bool _new);
+    void setGas();
+    void setOil();
+    void setHotWater(bool _new);
 };
 
 #endif // SCREENHOME1_H

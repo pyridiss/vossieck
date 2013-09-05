@@ -108,20 +108,20 @@ void MainWindow::previousScreen()
 
     else if (currentScreen == "final")
     {
-        if (screenTitle->industryChecked)   changeScreen("industry2", finalScreen, screenIndustry2);
-        if (screenTitle->homeChecked)       changeScreen("homePV", finalScreen, homePV);
+        if (screenTitle->industry)   changeScreen("industry2", finalScreen, screenIndustry2);
+        if (screenTitle->home)       changeScreen("homePV", finalScreen, homePV);
         next->setText("Next >");
     }
 }
 
 void MainWindow::nextScreen()
 {
-    if (currentScreen == "title" && screenTitle->homeChecked)
+    if (currentScreen == "title" && screenTitle->home)
     {
         changeScreen("homeHabitat", screenTitle, homeHabitat);
         prev->setText("< Previous");
     }
-    else if (currentScreen == "title" && screenTitle->industryChecked)
+    else if (currentScreen == "title" && screenTitle->industry)
     {
         changeScreen("industryConsumption", screenTitle, industryConsumption);
         prev->setText("< Previous");
@@ -153,41 +153,42 @@ void MainWindow::createDataString()
     QString str = "";
 
     //Screen Title
-    if (screenTitle->homeChecked) str += "profile=Home";
-    if (screenTitle->industryChecked) str += "profile=Industry";
+    if (screenTitle->home)      str += "profile=Home";
+    if (screenTitle->industry)  str += "profile=Industry";
     str += "&";
 
     //Screen Home Consumption
-    str += "sh1-en_cons=";      str += toStr(homeConsumption->energy_consumption);          str += "&";
-    str += "sh1-en_price=";     str += toStr(homeConsumption->energy_price);                str += "&";
-    str += "sh1-en_bprice=";    str += toStr(homeConsumption->energy_basePrice);            str += "&";
-    str += "sh1-he_cons=";      str += toStr(homeConsumption->heat_consumption);            str += "&";
-    str += "sh1-he_price=";     str += toStr(homeConsumption->heat_price);                  str += "&";
-    str += "sh1-gas=";          str += (homeConsumption->gasSelected) ? "true" : "false";   str += "&";
-    str += "sh1-hotwater=";     str += (homeConsumption->withHotWater) ? "true" : "false";  str += "&";
+    str += "sh1-en_cons=";      str += toStr(homeConsumption->energy_consumption);      str += "&";
+    str += "sh1-en_price=";     str += toStr(homeConsumption->energy_price);            str += "&";
+    str += "sh1-en_bprice=";    str += toStr(homeConsumption->energy_basePrice);        str += "&";
+    str += "sh1-he_cons=";      str += toStr(homeConsumption->heat_consumption);        str += "&";
+    str += "sh1-he_price=";     str += toStr(homeConsumption->heat_price);              str += "&";
+    str += "sh1-gas=";          str += (homeConsumption->gas) ? "true" : "false";       str += "&";
+    str += "sh1-oil=";          str += (homeConsumption->oil) ? "true" : "false";       str += "&";
+    str += "sh1-hotwater=";     str += (homeConsumption->hotWater) ? "true" : "false";  str += "&";
 
     //Screen Home PV
-    str += "sh2-surf=";     str += toStr(homePV->surface);    str += "&";
-    str += "sh2-dir=";      str += homePV->direction;  str += "&";
-    str += "sh2-angle=";    str += toStr(homePV->angle);      str += "&";
+    str += "sh2-surf=";     str += toStr(homePV->surface);  str += "&";
+    str += "sh2-dir=";      str += homePV->direction;       str += "&";
+    str += "sh2-angle=";    str += toStr(homePV->angle);    str += "&";
 
     //Screen Home Habitat
-    str += "sh3-mehr=";     str += (homeHabitat->mehrFamHausChecked) ? "true" : "false";    str += "&";
-    str += "sh3-ein=";      str += (homeHabitat->einFamHausChecked) ? "true" : "false";     str += "&";
-    str += "sh3-wohn=";     str += (homeHabitat->wohnungChecked) ? "true" : "false";        str += "&";
-    str += "sh3-eigen=";    str += (homeHabitat->eigentuemerChecked) ? "true" : "false";    str += "&";
-    str += "sh3-miete=";    str += (homeHabitat->mieteChecked) ? "true" : "false";          str += "&";
+    str += "sh3-mehr=";     str += (homeHabitat->mehrFamHaus) ? "true" : "false";   str += "&";
+    str += "sh3-ein=";      str += (homeHabitat->einFamHaus) ? "true" : "false";    str += "&";
+    str += "sh3-wohn=";     str += (homeHabitat->wohnung) ? "true" : "false";       str += "&";
+    str += "sh3-eigen=";    str += (homeHabitat->eigentuemer) ? "true" : "false";   str += "&";
+    str += "sh3-miete=";    str += (homeHabitat->miete) ? "true" : "false";         str += "&";
 
     //Screen Industry Consumption
-    str += "si1-cons=";     str += toStr(industryConsumption->consumption);                 str += "&";
-    str += "si1-htap=";     str += toStr(industryConsumption->hTArbPreis);                  str += "&";
-    str += "si1-ntap=";     str += toStr(industryConsumption->nTArbPreis);                  str += "&";
-    str += "si1-netz=";     str += toStr(industryConsumption->netzkosten);                  str += "&";
-    str += "si1-eeg=";      str += (industryConsumption->checkedEEG) ? "true" : "false";    str += "&";
-    str += "si1-kwk=";      str += toStr(industryConsumption->kWK);                         str += "&";
-    str += "si1-strsmg=";   str += toStr(industryConsumption->stromstG);                    str += "&";
-    str += "si1-off=";      str += toStr(industryConsumption->offshore);                    str += "&";
-    str += "si1-leist=";    str += toStr(industryConsumption->leistung);                    str += "&";
+    str += "si1-cons=";     str += toStr(industryConsumption->consumption);         str += "&";
+    str += "si1-htap=";     str += toStr(industryConsumption->hTArbPreis);          str += "&";
+    str += "si1-ntap=";     str += toStr(industryConsumption->nTArbPreis);          str += "&";
+    str += "si1-netz=";     str += toStr(industryConsumption->netzkosten);          str += "&";
+    str += "si1-eeg=";      str += (industryConsumption->eEG) ? "true" : "false";   str += "&";
+    str += "si1-kwk=";      str += toStr(industryConsumption->kWK);                 str += "&";
+    str += "si1-strsmg=";   str += toStr(industryConsumption->stromstG);            str += "&";
+    str += "si1-off=";      str += toStr(industryConsumption->offshore);            str += "&";
+    str += "si1-leist=";    str += toStr(industryConsumption->leistung);            str += "&";
 
     //Screen Industry 2
 
