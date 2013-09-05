@@ -13,8 +13,11 @@
 FinalScreen::FinalScreen(QWidget *parent) :
     QWidget(parent)
 {
-    QLabel *label = new QLabel("<span style='font-size: 20pt;'>Personal information</span>");
-    label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+    QLabel *title = new QLabel("<span style='font-size: 20pt;'>Personal information</span>");
+    title->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+
+    QLabel *text = new QLabel("Please, give us personal information, we will contact you soon!");
+    text->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 
     QLabel *labelName   = new QLabel("Name");
     QLabel *labelAdress = new QLabel("Adress");
@@ -28,20 +31,22 @@ FinalScreen::FinalScreen(QWidget *parent) :
 
     QPushButton *button = new QPushButton("Click here to send data");
     labelError = new QLabel;
+    labelError->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 
     QGridLayout *layout = new QGridLayout;
 
-    layout->addWidget(label, 0, 0, 1, 2);
-    layout->addWidget(labelName, 1, 0, 1, 1);
-    layout->addWidget(labelAdress, 2, 0, 1, 1);
-    layout->addWidget(labelPhone, 3, 0, 1, 1);
-    layout->addWidget(labelEmail, 4, 0, 1, 1);
-    layout->addWidget(lineName, 1, 1, 1, 1);
-    layout->addWidget(lineAdress, 2, 1, 1, 1);
-    layout->addWidget(linePhone, 3, 1, 1, 1);
-    layout->addWidget(lineEmail, 4, 1, 1, 1);
-    layout->addWidget(button, 5, 0, 1, 2);
-    layout->addWidget(labelError, 6, 0, 1, 2);
+    layout->addWidget(title, 0, 0, 1, 2);
+    layout->addWidget(text, 1, 0, 1, 2);
+    layout->addWidget(labelName, 2, 0, 1, 1);
+    layout->addWidget(labelAdress, 3, 0, 1, 1);
+    layout->addWidget(labelPhone, 4, 0, 1, 1);
+    layout->addWidget(labelEmail, 5, 0, 1, 1);
+    layout->addWidget(lineName, 2, 1, 1, 1);
+    layout->addWidget(lineAdress, 3, 1, 1, 1);
+    layout->addWidget(linePhone, 4, 1, 1, 1);
+    layout->addWidget(lineEmail, 5, 1, 1, 1);
+    layout->addWidget(button, 6, 0, 1, 2);
+    layout->addWidget(labelError, 7, 0, 1, 2);
 
     setLayout(layout);
 
@@ -74,6 +79,7 @@ void FinalScreen::sendData()
 
     if (reply->error() != QNetworkReply::NoError)
         labelError->setText(reply->errorString());
+    else labelError->setText("Information sent!");
 }
 
 void FinalScreen::setName(QString _new)

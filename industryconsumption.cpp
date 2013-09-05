@@ -24,57 +24,41 @@ IndustryConsumption::IndustryConsumption(QWidget *parent) :
     QLabel *labelEnergy = new QLabel("<span style='font-size: 20pt;'>Energy</span>");
     labelEnergy->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 
-    QLabel *labelConsumption =  new QLabel("Consumption");
-    QLabel *labelHTArbPreis =   new QLabel("HT Arbeitspreis");
-    QLabel *labelNTArbPreis =   new QLabel("NT Arbeitspreis");
-    QLabel *labelNetzkosten =   new QLabel("Netzkosten");
-    QLabel *labelEEG =          new QLabel("EEG-Umlage-Befreit:");
-    QLabel *labelKWK =          new QLabel("KWK");
-    QLabel *labelStromstG =     new QLabel("§19 Stromst-G.");
-    QLabel *labelOffshore =     new QLabel("OffshoreUmlage");
-    QLabel *labelLeistung =     new QLabel("Leistungskosten");
+    QLabel *labelConsumption =  new QLabel("Consumption");          labelConsumption->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelHTArbPreis =   new QLabel("HT Arbeitspreis");      labelHTArbPreis->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelNTArbPreis =   new QLabel("NT Arbeitspreis");      labelNTArbPreis->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelNetzkosten =   new QLabel("Netzkosten");           labelNetzkosten->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelEEG =          new QLabel("EEG-Umlage-Befreit:");  labelEEG->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelKWK =          new QLabel("KWK");                  labelKWK->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelStromstG =     new QLabel("§19 Stromst-G.");       labelStromstG->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelOffshore =     new QLabel("OffshoreUmlage");       labelOffshore->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelLeistung =     new QLabel("Leistungskosten");      labelLeistung->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
-    QSpinBox *lineConsumption =      new QSpinBox();
-    lineConsumption->setRange(0, 100000000);    lineConsumption->setSingleStep(50);
-    lineConsumption->setAccelerated(true);
-    lineConsumption->setSuffix(" kWh/year");
+    QLineEdit *lineConsumption =    new QLineEdit();
+    QLabel *unitConsumption = new QLabel("kWh/year");
 
-    QDoubleSpinBox *lineHTArbPreis = new QDoubleSpinBox();
-    lineHTArbPreis->setRange(0, 10000000);      lineHTArbPreis->setSingleStep(0.01);
-    lineHTArbPreis->setAccelerated(true);
-    lineHTArbPreis->setSuffix(" c€/kWh");
+    QLineEdit *lineHTArbPreis =     new QLineEdit();
+    QLabel *unitHTArbPreis = new QLabel("c€/kWh");
 
-    QDoubleSpinBox *lineNTArbPreis = new QDoubleSpinBox();
-    lineNTArbPreis->setRange(0, 10000000);      lineNTArbPreis->setSingleStep(0.01);
-    lineNTArbPreis->setAccelerated(true);
-    lineNTArbPreis->setSuffix(" c€/kWh");
+    QLineEdit *lineNTArbPreis =     new QLineEdit();
+    QLabel *unitNTArbPreis = new QLabel("c€/kWh");
 
-    QDoubleSpinBox *lineNetzkosten = new QDoubleSpinBox();
-    lineNetzkosten->setRange(0, 10000000);      lineNetzkosten->setSingleStep(0.01);
-    lineNetzkosten->setAccelerated(true);
-    lineNetzkosten->setSuffix(" €/Monat");
+    QLineEdit *lineNetzkosten =     new QLineEdit();
+    QLabel *unitNetzkosten = new QLabel("€/Monat");
 
-    QDoubleSpinBox *lineKWK =        new QDoubleSpinBox();
-    lineKWK->setRange(0, 10000000);             lineKWK->setSingleStep(0.01);
-    lineKWK->setAccelerated(true);
-    lineKWK->setSuffix(" €");
+    QLineEdit *lineKWK =            new QLineEdit();
+    QLabel *unitKWK = new QLabel("€");
 
-    QDoubleSpinBox *lineStromstG =   new QDoubleSpinBox();
-    lineStromstG->setRange(0, 1000000);         lineStromstG->setSingleStep(0.01);
-    lineStromstG->setAccelerated(true);
-    lineStromstG->setSuffix(" €");
+    QLineEdit *lineStromstG =       new QLineEdit();
+    QLabel *unitStromstG = new QLabel("€");
 
-    QDoubleSpinBox *lineOffshore =   new QDoubleSpinBox();
-    lineOffshore->setRange(0, 100000000);       lineOffshore->setSingleStep(0.01);
-    lineOffshore->setAccelerated(true);
-    lineOffshore->setSuffix(" €");
+    QLineEdit *lineOffshore =       new QLineEdit();
+    QLabel *unitOffshore = new QLabel("€");
 
-    QDoubleSpinBox *lineLeistung =   new QDoubleSpinBox();
-    lineLeistung->setRange(0, 10000000);        lineLeistung->setSingleStep(0.01);
-    lineLeistung->setAccelerated(true);
-    lineLeistung->setSuffix(" €/Monat");
+    QLineEdit *lineLeistung =       new QLineEdit();
+    QLabel *unitLeistung = new QLabel("€/Monat");
 
-    QCheckBox *radioEEG =       new QCheckBox();
+    QCheckBox *radioEEG =           new QCheckBox();
 
     QGridLayout *layout = new QGridLayout;
 
@@ -83,67 +67,76 @@ IndustryConsumption::IndustryConsumption(QWidget *parent) :
     layout->addWidget(labelHTArbPreis,  2, 0, 1, 1);
     layout->addWidget(labelNTArbPreis,  3, 0, 1, 1);
     layout->addWidget(labelNetzkosten,  4, 0, 1, 1);
-    layout->addWidget(labelEEG,         5, 0, 1, 2);
+    layout->addWidget(labelEEG,         5, 0, 1, 1);
     layout->addWidget(labelKWK,         6, 0, 1, 1);
     layout->addWidget(labelStromstG,    7, 0, 1, 1);
     layout->addWidget(labelOffshore,    8, 0, 1, 1);
     layout->addWidget(labelLeistung,    9, 0, 1, 1);
 
-    layout->addWidget(lineConsumption,  1, 1, 1, 2);
-    layout->addWidget(lineHTArbPreis,   2, 1, 1, 2);
-    layout->addWidget(lineNTArbPreis,   3, 1, 1, 2);
-    layout->addWidget(lineNetzkosten,   4, 1, 1, 2);
-    layout->addWidget(radioEEG,         5, 2, 1, 1);
-    layout->addWidget(lineKWK,          6, 1, 1, 2);
-    layout->addWidget(lineStromstG,     7, 1, 1, 2);
-    layout->addWidget(lineOffshore,     8, 1, 1, 2);
-    layout->addWidget(lineLeistung,     9, 1, 1, 2);
+    layout->addWidget(lineConsumption,  1, 1, 1, 1);
+    layout->addWidget(lineHTArbPreis,   2, 1, 1, 1);
+    layout->addWidget(lineNTArbPreis,   3, 1, 1, 1);
+    layout->addWidget(lineNetzkosten,   4, 1, 1, 1);
+    layout->addWidget(radioEEG,         5, 1, 1, 1);
+    layout->addWidget(lineKWK,          6, 1, 1, 1);
+    layout->addWidget(lineStromstG,     7, 1, 1, 1);
+    layout->addWidget(lineOffshore,     8, 1, 1, 1);
+    layout->addWidget(lineLeistung,     9, 1, 1, 1);
+
+    layout->addWidget(unitConsumption,  1, 2, 1, 1);
+    layout->addWidget(unitHTArbPreis,   2, 2, 1, 1);
+    layout->addWidget(unitNTArbPreis,   3, 2, 1, 1);
+    layout->addWidget(unitNetzkosten,   4, 2, 1, 1);
+    layout->addWidget(unitKWK,          6, 2, 1, 1);
+    layout->addWidget(unitStromstG,     7, 2, 1, 1);
+    layout->addWidget(unitOffshore,     8, 2, 1, 1);
+    layout->addWidget(unitLeistung,     9, 2, 1, 1);
 
     layout->setRowStretch(0, 1);
     layout->setRowStretch(10, 1);
     setLayout(layout);
 
-    connect(lineConsumption,    SIGNAL(valueChanged(int)),      this, SLOT(setConsumption(int)));
-    connect(lineHTArbPreis,     SIGNAL(valueChanged(double)),   this, SLOT(setHTArbPreis(double)));
-    connect(lineNTArbPreis,     SIGNAL(valueChanged(double)),   this, SLOT(setNTArbPreis(double)));
-    connect(lineNetzkosten,     SIGNAL(valueChanged(double)),   this, SLOT(setNetzkosten(double)));
+    connect(lineConsumption,    SIGNAL(textEdited(QString)),    this, SLOT(setConsumption(QString)));
+    connect(lineHTArbPreis,     SIGNAL(textEdited(QString)),    this, SLOT(setHTArbPreis(QString)));
+    connect(lineNTArbPreis,     SIGNAL(textEdited(QString)),    this, SLOT(setNTArbPreis(QString)));
+    connect(lineNetzkosten,     SIGNAL(textEdited(QString)),    this, SLOT(setNetzkosten(QString)));
     connect(radioEEG,           SIGNAL(clicked(bool)),          this, SLOT(setCheckedEEG(bool)));
-    connect(lineKWK,            SIGNAL(valueChanged(double)),   this, SLOT(setKWK(double)));
-    connect(lineStromstG,       SIGNAL(valueChanged(double)),   this, SLOT(setStromstG(double)));
-    connect(lineOffshore,       SIGNAL(valueChanged(double)),   this, SLOT(setOffshore(double)));
-    connect(lineLeistung,       SIGNAL(valueChanged(double)),   this, SLOT(setLeistung(double)));
+    connect(lineKWK,            SIGNAL(textEdited(QString)),    this, SLOT(setKWK(QString)));
+    connect(lineStromstG,       SIGNAL(textEdited(QString)),    this, SLOT(setStromstG(QString)));
+    connect(lineOffshore,       SIGNAL(textEdited(QString)),    this, SLOT(setOffshore(QString)));
+    connect(lineLeistung,       SIGNAL(textEdited(QString)),    this, SLOT(setLeistung(QString)));
 
     //Signals to stop editing fields
-    connect(lineConsumption,    SIGNAL(editingFinished()),      this, SLOT(setFocus()));
-    connect(lineHTArbPreis,     SIGNAL(editingFinished()),      this, SLOT(setFocus()));
-    connect(lineNTArbPreis,     SIGNAL(editingFinished()),      this, SLOT(setFocus()));
-    connect(lineNetzkosten,     SIGNAL(editingFinished()),      this, SLOT(setFocus()));
-    connect(lineKWK,            SIGNAL(editingFinished()),      this, SLOT(setFocus()));
-    connect(lineStromstG,       SIGNAL(editingFinished()),      this, SLOT(setFocus()));
-    connect(lineOffshore,       SIGNAL(editingFinished()),      this, SLOT(setFocus()));
-    connect(lineLeistung,       SIGNAL(editingFinished()),      this, SLOT(setFocus()));
+    connect(lineConsumption,    SIGNAL(returnPressed()),      this, SLOT(setFocus()));
+    connect(lineHTArbPreis,     SIGNAL(returnPressed()),      this, SLOT(setFocus()));
+    connect(lineNTArbPreis,     SIGNAL(returnPressed()),      this, SLOT(setFocus()));
+    connect(lineNetzkosten,     SIGNAL(returnPressed()),      this, SLOT(setFocus()));
+    connect(lineKWK,            SIGNAL(returnPressed()),      this, SLOT(setFocus()));
+    connect(lineStromstG,       SIGNAL(returnPressed()),      this, SLOT(setFocus()));
+    connect(lineOffshore,       SIGNAL(returnPressed()),      this, SLOT(setFocus()));
+    connect(lineLeistung,       SIGNAL(returnPressed()),      this, SLOT(setFocus()));
 }
 
 //Setters:
 
-void IndustryConsumption::setConsumption(int _new)
+void IndustryConsumption::setConsumption(QString _new)
 {
-    consumption = _new;
+    consumption = _new.toInt();
 }
 
-void IndustryConsumption::setHTArbPreis(double _new)
+void IndustryConsumption::setHTArbPreis(QString _new)
 {
-    hTArbPreis = _new;
+    hTArbPreis = _new.toDouble();
 }
 
-void IndustryConsumption::setNTArbPreis(double _new)
+void IndustryConsumption::setNTArbPreis(QString _new)
 {
-    nTArbPreis = _new;
+    nTArbPreis = _new.toDouble();
 }
 
-void IndustryConsumption::setNetzkosten(double _new)
+void IndustryConsumption::setNetzkosten(QString _new)
 {
-    netzkosten = _new;
+    netzkosten = _new.toDouble();
 }
 
 void IndustryConsumption::setCheckedEEG(bool _new)
@@ -151,22 +144,22 @@ void IndustryConsumption::setCheckedEEG(bool _new)
     checkedEEG = _new;
 }
 
-void IndustryConsumption::setKWK(double _new)
+void IndustryConsumption::setKWK(QString _new)
 {
-    kWK = _new;
+    kWK = _new.toDouble();
 }
 
-void IndustryConsumption::setStromstG(double _new)
+void IndustryConsumption::setStromstG(QString _new)
 {
-    stromstG = _new;
+    stromstG = _new.toDouble();
 }
 
-void IndustryConsumption::setOffshore(double _new)
+void IndustryConsumption::setOffshore(QString _new)
 {
-    offshore = _new;
+    offshore = _new.toDouble();
 }
 
-void IndustryConsumption::setLeistung(double _new)
+void IndustryConsumption::setLeistung(QString _new)
 {
-    leistung = _new;
+    leistung = _new.toDouble();
 }

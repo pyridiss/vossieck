@@ -23,15 +23,15 @@ public:
 signals:
 
 public slots:
-    void setConsumption(int _new);
-    void setHTArbPreis(double _new);
-    void setNTArbPreis(double _new);
-    void setNetzkosten(double _new);
+    void setConsumption(QString _new);
+    void setHTArbPreis(QString _new);
+    void setNTArbPreis(QString _new);
+    void setNetzkosten(QString _new);
     void setCheckedEEG(bool _new);
-    void setKWK(double _new);
-    void setStromstG(double _new);
-    void setOffshore(double _new);
-    void setLeistung(double _new);
+    void setKWK(QString _new);
+    void setStromstG(QString _new);
+    void setOffshore(QString _new);
+    void setLeistung(QString _new);
 };
 
 #endif // SCREENINDUSTRY1_H
