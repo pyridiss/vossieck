@@ -27,6 +27,8 @@ public:
     QPixmap& loadLogo();
 
 private:
+    bool dataSent;
+private:
     void createDataString();
     void changeScreen(string _newTitle, QWidget* _oldScreen, QWidget* _newScreen);
 

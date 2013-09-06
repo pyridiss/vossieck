@@ -29,8 +29,6 @@ FinalScreen::FinalScreen(QWidget *parent) :
     QLineEdit *linePhone   = new QLineEdit();
     QLineEdit *lineEmail   = new QLineEdit();
 
-    QPushButton *button = new QPushButton("Click here to send data");
-
     labelError = new QLabel;
     labelError->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 
@@ -46,8 +44,7 @@ FinalScreen::FinalScreen(QWidget *parent) :
     layout->addWidget(lineAddress,  3, 1, 1, 1);
     layout->addWidget(linePhone,    4, 1, 1, 1);
     layout->addWidget(lineEmail,    5, 1, 1, 1);
-    layout->addWidget(button,       6, 1, 1, 1);
-    layout->addWidget(labelError,   7, 0, 1, 3);
+    layout->addWidget(labelError,   6, 0, 1, 3);
 
     layout->setColumnStretch(0, 1);
     layout->setColumnStretch(1, 2);
@@ -58,7 +55,6 @@ FinalScreen::FinalScreen(QWidget *parent) :
     connect(lineAddress,    SIGNAL(textEdited(QString)),    this, SLOT(setAddress(QString)));
     connect(linePhone,      SIGNAL(textEdited(QString)),    this, SLOT(setPhone(QString)));
     connect(lineEmail,      SIGNAL(textEdited(QString)),    this, SLOT(setEmail(QString)));
-    connect(button,         SIGNAL(clicked()),              this, SLOT(sendData()));
 
     //Signals to stop editing fields
     connect(lineName,       SIGNAL(returnPressed()),    this, SLOT(setFocus()));

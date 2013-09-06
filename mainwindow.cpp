@@ -6,6 +6,7 @@
 #include <QPixmap>
 
 #include "mainwindow.h"
+#include <iostream>
 
 //Defined in main.cpp
 int getScreenWidth();
@@ -17,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QWidget(parent)
 {
     currentScreen = "title";
+    dataSent = false;
 
     //Application Logo
     QLabel *title = new QLabel;
@@ -142,12 +144,19 @@ void MainWindow::nextScreen()
     {
         if (currentScreen == "industry2")   changeScreen("final", screenIndustry2, finalScreen);
         if (currentScreen == "homePV")      changeScreen("final", homePV, finalScreen);
-        createDataString();
-        next->setText("Quit");
+        next->setText("Send data");
     }
     else if (currentScreen == "final")
     {
-        qApp->quit();
+        if (!dataSent)
+        {
+            createDataString();
+            finalScreen->sendData();
+            next->setText("Quit");
+            dataSent = true;
+        }
+        else
+            qApp->quit();
     }
 }
 
@@ -201,8 +210,8 @@ void MainWindow::createDataString()
     str += "phone=";        str += finalScreen->phone;      str += "&";
     str += "email=";        str += finalScreen->email;
 
+    std::cout << str.toStdString() << std::endl;
+
     //Sending data string
-    int valeur = 55;
-    str += "valeur=";   str += valeur;
     finalScreen->setDataString(str);
 }
