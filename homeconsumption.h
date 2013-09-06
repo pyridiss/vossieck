@@ -22,11 +22,11 @@ public:
 signals:
 
 public slots:
-    void setEnergy_consumption(int _new);
-    void setEnergy_price(double _new);
-    void setEnergy_basePrice(double _new);
-    void setHeat_consumption(int _new);
-    void setHeat_price(double _new);
+    void setEnergy_consumption(QString _new);
+    void setEnergy_price(QString _new);
+    void setEnergy_basePrice(QString _new);
+    void setHeat_consumption(QString _new);
+    void setHeat_price(QString _new);
     void setGas();
     void setOil();
     void setHotWater(bool _new);

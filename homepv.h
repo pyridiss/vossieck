@@ -18,9 +18,9 @@ public:
 signals:
 
 public slots:
-    void setSurface(int _new);
+    void setSurface(QString _new);
     void setDirection(QString _new);
-    void setAngle(int _new);
+    void setAngle(QString _new);
 };
 
 #endif // SCREENHOME2_H

@@ -192,6 +192,12 @@ void MainWindow::createDataString()
 
     //Screen Industry 2
 
+    //Final Screen
+    str += "name=";         str += finalScreen->name;       str += "&";
+    str += "address=";      str += finalScreen->address;    str += "&";
+    str += "phone=";        str += finalScreen->phone;      str += "&";
+    str += "email=";        str += finalScreen->email;
+
     //Sending data string
     int valeur = 55;
     str += "valeur=";   str += valeur;

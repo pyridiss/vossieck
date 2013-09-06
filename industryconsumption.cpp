@@ -92,6 +92,9 @@ IndustryConsumption::IndustryConsumption(QWidget *parent) :
     layout->addWidget(unitOffshore,     8, 2, 1, 1);
     layout->addWidget(unitLeistung,     9, 2, 1, 1);
 
+    layout->setColumnStretch(0, 1);
+    layout->setColumnStretch(1, 2);
+    layout->setColumnStretch(2, 1);
     layout->setRowStretch(0, 1);
     layout->setRowStretch(10, 1);
     setLayout(layout);
