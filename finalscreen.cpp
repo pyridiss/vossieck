@@ -35,15 +35,15 @@ FinalScreen::FinalScreen(QWidget *parent) :
     QGridLayout *layout = new QGridLayout;
 
     layout->addWidget(title,        0, 0, 1, 3);
-    layout->addWidget(text,         1, 0, 1, 3);
-    layout->addWidget(labelName,    2, 0, 1, 1);
-    layout->addWidget(labelAddress, 3, 0, 1, 1);
-    layout->addWidget(labelPhone,   4, 0, 1, 1);
-    layout->addWidget(labelEmail,   5, 0, 1, 1);
-    layout->addWidget(lineName,     2, 1, 1, 1);
-    layout->addWidget(lineAddress,  3, 1, 1, 1);
-    layout->addWidget(linePhone,    4, 1, 1, 1);
-    layout->addWidget(lineEmail,    5, 1, 1, 1);
+    layout->addWidget(labelName,    1, 0, 1, 1);
+    layout->addWidget(labelAddress, 2, 0, 1, 1);
+    layout->addWidget(labelPhone,   3, 0, 1, 1);
+    layout->addWidget(labelEmail,   4, 0, 1, 1);
+    layout->addWidget(lineName,     1, 1, 1, 1);
+    layout->addWidget(lineAddress,  2, 1, 1, 1);
+    layout->addWidget(linePhone,    3, 1, 1, 1);
+    layout->addWidget(lineEmail,    4, 1, 1, 1);
+    layout->addWidget(text,         5, 0, 1, 3);
     layout->addWidget(labelError,   6, 0, 1, 3);
 
     layout->setColumnStretch(0, 1);
