@@ -25,14 +25,14 @@ HomeConsumption::HomeConsumption(QWidget *parent) :
     QLabel *labelEnergyPrice       = new QLabel("Price");       labelEnergyPrice->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     QLabel *labelEnergyBasePrice   = new QLabel("Base Price");  labelEnergyBasePrice->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
-    QLineEdit *lineEnergyConsumption     = new QLineEdit();
-    QLabel *unitEnergyConsumption = new QLabel("kWh/Year");
+    QLineEdit *lineEnergyConsumption    = new QLineEdit();
+    QLabel *unitEnergyConsumption       = new QLabel("kWh/Year");
 
-    QLineEdit *lineEnergyPrice     = new QLineEdit();
-    QLabel *unitEnergyPrice = new QLabel("c€/kWh");
+    QLineEdit *lineEnergyPrice          = new QLineEdit();
+    QLabel *unitEnergyPrice             = new QLabel("c€/kWh");
 
-    QLineEdit *lineEnergyBasePrice = new QLineEdit();
-    QLabel *unitEnergyBasePrice = new QLabel("€/Month");
+    QLineEdit *lineEnergyBasePrice      = new QLineEdit();
+    QLabel *unitEnergyBasePrice         = new QLabel("€/Month");
 
 
     QLabel *labelHeat = new QLabel("<span style='font-size: 20pt;'>Heat</span>");
@@ -41,11 +41,11 @@ HomeConsumption::HomeConsumption(QWidget *parent) :
     QLabel *labelHeatConsumption = new QLabel("Consumption");   labelHeatConsumption->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     QLabel *labelHeatPrice       = new QLabel("Price");         labelHeatPrice->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
-    QLineEdit *lineHeatConsumption = new QLineEdit();
-    QLabel *unitHeatConsumption = new QLabel("kWh/year");
+    QLineEdit *lineHeatConsumption  = new QLineEdit();
+    QLabel *unitHeatConsumption     = new QLabel("kWh/year");
 
-    QLineEdit *lineHeatPrice = new QLineEdit();
-    QLabel *unitHeatPrice = new QLabel("c€/kWh");
+    QLineEdit *lineHeatPrice        = new QLineEdit();
+    QLabel *unitHeatPrice           = new QLabel("c€/kWh");
 
     QLabel *labelFuel = new QLabel("Fuel:");                    labelFuel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     QRadioButton* radioGas = new QRadioButton("Gas");

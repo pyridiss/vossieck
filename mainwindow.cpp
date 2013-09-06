@@ -38,16 +38,16 @@ MainWindow::MainWindow(QWidget *parent)
     next = new QPushButton("Next >");
 
     //Grid Layout
-    layoutMainWindow.addWidget(title, 0, 0, 1, 2);
-    layoutMainWindow.addWidget(screenTitle, 1, 0, 1, 2);
+    layoutMainWindow.addWidget(title,               0, 0, 1, 2);
+    layoutMainWindow.addWidget(screenTitle,         1, 0, 1, 2);
     layoutMainWindow.addWidget(industryConsumption, 1, 0, 1, 2);
-    layoutMainWindow.addWidget(screenIndustry2, 1, 0, 1, 2);
-    layoutMainWindow.addWidget(homeConsumption, 1, 0, 1, 2);
-    layoutMainWindow.addWidget(homePV, 1, 0, 1, 2);
-    layoutMainWindow.addWidget(homeHabitat, 1, 0, 1, 2);
-    layoutMainWindow.addWidget(finalScreen, 1, 0, 1, 2);
-    layoutMainWindow.addWidget(prev, 2, 0, 1, 1);
-    layoutMainWindow.addWidget(next, 2, 1, 1, 1);
+    layoutMainWindow.addWidget(screenIndustry2,     1, 0, 1, 2);
+    layoutMainWindow.addWidget(homeConsumption,     1, 0, 1, 2);
+    layoutMainWindow.addWidget(homePV,              1, 0, 1, 2);
+    layoutMainWindow.addWidget(homeHabitat,         1, 0, 1, 2);
+    layoutMainWindow.addWidget(finalScreen,         1, 0, 1, 2);
+    layoutMainWindow.addWidget(prev,                2, 0, 1, 1);
+    layoutMainWindow.addWidget(next,                2, 1, 1, 1);
     layoutMainWindow.setRowStretch(0, 0);
     layoutMainWindow.setRowStretch(1, 1);
     layoutMainWindow.setRowStretch(2, 0);
@@ -129,7 +129,10 @@ void MainWindow::nextScreen()
     else if (currentScreen == "industryConsumption")
         changeScreen("industry2", industryConsumption, screenIndustry2);
 
-    else if (currentScreen == "homeHabitat")
+    else if (currentScreen == "homeHabitat" &&
+             (homeHabitat->mehrFamHaus || homeHabitat->einFamHaus || homeHabitat->wohnung) &&
+             (homeHabitat->eigentuemer || homeHabitat->miete)
+            )
         changeScreen("homeConsumption", homeHabitat, homeConsumption);
 
     else if (currentScreen == "homeConsumption")

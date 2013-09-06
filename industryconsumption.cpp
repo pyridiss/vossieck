@@ -35,28 +35,28 @@ IndustryConsumption::IndustryConsumption(QWidget *parent) :
     QLabel *labelLeistung =     new QLabel("Leistungskosten");      labelLeistung->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
     QLineEdit *lineConsumption =    new QLineEdit();
-    QLabel *unitConsumption = new QLabel("kWh/year");
+    QLabel *unitConsumption =       new QLabel("kWh/year");
 
     QLineEdit *lineHTArbPreis =     new QLineEdit();
-    QLabel *unitHTArbPreis = new QLabel("c€/kWh");
+    QLabel *unitHTArbPreis =        new QLabel("c€/kWh");
 
     QLineEdit *lineNTArbPreis =     new QLineEdit();
-    QLabel *unitNTArbPreis = new QLabel("c€/kWh");
+    QLabel *unitNTArbPreis =        new QLabel("c€/kWh");
 
     QLineEdit *lineNetzkosten =     new QLineEdit();
-    QLabel *unitNetzkosten = new QLabel("€/Monat");
+    QLabel *unitNetzkosten =        new QLabel("€/Monat");
 
     QLineEdit *lineKWK =            new QLineEdit();
-    QLabel *unitKWK = new QLabel("€");
+    QLabel *unitKWK =               new QLabel("€");
 
     QLineEdit *lineStromstG =       new QLineEdit();
-    QLabel *unitStromstG = new QLabel("€");
+    QLabel *unitStromstG =          new QLabel("€");
 
     QLineEdit *lineOffshore =       new QLineEdit();
-    QLabel *unitOffshore = new QLabel("€");
+    QLabel *unitOffshore =          new QLabel("€");
 
     QLineEdit *lineLeistung =       new QLineEdit();
-    QLabel *unitLeistung = new QLabel("€/Monat");
+    QLabel *unitLeistung =          new QLabel("€/Monat");
 
     QCheckBox *radioEEG =           new QCheckBox();
 
