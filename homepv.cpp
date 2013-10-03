@@ -9,6 +9,7 @@ HomePV::HomePV(QWidget *parent) :
     QWidget(parent)
 {
     surface = 0;
+    direction = "North";
     angle = 0;
 
     QLabel *labelPanels = new QLabel("<span style='font-size:20pt;'>Photovoltaic panels</span>");
