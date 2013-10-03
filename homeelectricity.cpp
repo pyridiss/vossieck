@@ -4,9 +4,9 @@
 #include <QLineEdit>
 #include <QCheckBox>
 
-#include "homeconsumption.h"
+#include "homeelectricity.h"
 
-HomeConsumption::HomeConsumption(QWidget *parent) :
+HomeElectricity::HomeElectricity(QWidget *parent) :
     QWidget(parent)
 {
     energy_consumption = 0;
@@ -101,44 +101,44 @@ HomeConsumption::HomeConsumption(QWidget *parent) :
 
 //Setters:
 
-void HomeConsumption::setEnergy_consumption(QString _new)
+void HomeElectricity::setEnergy_consumption(QString _new)
 {
     energy_consumption = _new.toInt();
 }
 
-void HomeConsumption::setEnergy_price(QString _new)
+void HomeElectricity::setEnergy_price(QString _new)
 {
     energy_price = _new.toDouble();
 }
 
-void HomeConsumption::setEnergy_basePrice(QString _new)
+void HomeElectricity::setEnergy_basePrice(QString _new)
 {
     energy_basePrice = _new.toDouble();
 }
 
-void HomeConsumption::setHeat_consumption(QString _new)
+void HomeElectricity::setHeat_consumption(QString _new)
 {
     heat_consumption = _new.toInt();
 }
 
-void HomeConsumption::setHeat_price(QString _new)
+void HomeElectricity::setHeat_price(QString _new)
 {
     heat_price = _new.toDouble();
 }
 
-void HomeConsumption::setGas()
+void HomeElectricity::setGas()
 {
     gas = true;
     oil = false;
 }
 
-void HomeConsumption::setOil()
+void HomeElectricity::setOil()
 {
     gas = false;
     oil = true;
 }
 
-void HomeConsumption::setHotWater(bool _new)
+void HomeElectricity::setHotWater(bool _new)
 {
     hotWater = _new;
 }

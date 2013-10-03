@@ -6,9 +6,9 @@
 #include <QDoubleSpinBox>
 #include <QCheckBox>
 
-#include "industryconsumption.h"
+#include "industryelectricity.h"
 
-IndustryConsumption::IndustryConsumption(QWidget *parent) :
+IndustryElectricity::IndustryElectricity(QWidget *parent) :
     QWidget(parent)
 {
     consumption = 0;
@@ -122,47 +122,47 @@ IndustryConsumption::IndustryConsumption(QWidget *parent) :
 
 //Setters:
 
-void IndustryConsumption::setConsumption(QString _new)
+void IndustryElectricity::setConsumption(QString _new)
 {
     consumption = _new.toInt();
 }
 
-void IndustryConsumption::setHTArbPreis(QString _new)
+void IndustryElectricity::setHTArbPreis(QString _new)
 {
     hTArbPreis = _new.toDouble();
 }
 
-void IndustryConsumption::setNTArbPreis(QString _new)
+void IndustryElectricity::setNTArbPreis(QString _new)
 {
     nTArbPreis = _new.toDouble();
 }
 
-void IndustryConsumption::setNetzkosten(QString _new)
+void IndustryElectricity::setNetzkosten(QString _new)
 {
     netzkosten = _new.toDouble();
 }
 
-void IndustryConsumption::setEEG(bool _new)
+void IndustryElectricity::setEEG(bool _new)
 {
     eEG = _new;
 }
 
-void IndustryConsumption::setKWK(QString _new)
+void IndustryElectricity::setKWK(QString _new)
 {
     kWK = _new.toDouble();
 }
 
-void IndustryConsumption::setStromstG(QString _new)
+void IndustryElectricity::setStromstG(QString _new)
 {
     stromstG = _new.toDouble();
 }
 
-void IndustryConsumption::setOffshore(QString _new)
+void IndustryElectricity::setOffshore(QString _new)
 {
     offshore = _new.toDouble();
 }
 
-void IndustryConsumption::setLeistung(QString _new)
+void IndustryElectricity::setLeistung(QString _new)
 {
     leistung = _new.toDouble();
 }

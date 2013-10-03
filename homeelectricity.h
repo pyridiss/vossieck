@@ -1,13 +1,13 @@
-#ifndef HOMECONSUMPTION_H
-#define HOMECONSUMPTION_H
+#ifndef HOMEELECTRICITY_H
+#define HOMEELECTRICITY_H
 
 #include <QWidget>
 
-class HomeConsumption : public QWidget
+class HomeElectricity : public QWidget
 {
     Q_OBJECT
 public:
-    explicit HomeConsumption(QWidget *parent = 0);
+    explicit HomeElectricity(QWidget *parent = 0);
 
 public:
     int     energy_consumption;
@@ -32,4 +32,4 @@ public slots:
     void setHotWater(bool _new);
 };
 
-#endif // HOMECONSUMPTION_H
+#endif // HOMEELECTRICITY_H

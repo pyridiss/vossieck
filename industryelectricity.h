@@ -1,13 +1,13 @@
-#ifndef INDUSTRYCONSUMPTION_H
-#define INDUSTRYCONSUMPTION_H
+#ifndef INDUSTRYELECTRICITY_H
+#define INDUSTRYELECTRICITY_H
 
 #include <QWidget>
 
-class IndustryConsumption : public QWidget
+class IndustryElectricity : public QWidget
 {
     Q_OBJECT
 public:
-    explicit IndustryConsumption(QWidget *parent = 0);
+    explicit IndustryElectricity(QWidget *parent = 0);
 
 public:
     int    consumption;
@@ -34,4 +34,4 @@ public slots:
     void setLeistung(QString _new);
 };
 
-#endif // INDUSTRYCONSUMPTION_H
+#endif // INDUSTRYELECTRICITY_H

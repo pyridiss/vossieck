@@ -17,20 +17,24 @@ SOURCES += main.cpp \
     screentitle.cpp \
     screenindustry2.cpp \
     finalscreen.cpp \
-    homeconsumption.cpp \
     homepv.cpp \
     homehabitat.cpp \
-    industryconsumption.cpp
+    homeheat.cpp \
+    industryelectricity.cpp \
+    industryheat.cpp \
+    homeelectricity.cpp
 
 HEADERS  += \
     mainwindow.h \
     screentitle.h \
     screenindustry2.h \
     finalscreen.h \
-    homeconsumption.h \
     homepv.h \
     homehabitat.h \
-    industryconsumption.h
+    homeheat.h \
+    industryelectricity.h \
+    industryheat.h \
+    homeelectricity.h
 
 FORMS    +=
 

@@ -9,10 +9,12 @@
 #include <string>
 
 #include "screentitle.h"
-#include "homeconsumption.h"
+#include "homeelectricity.h"
+#include "homeheat.h"
 #include "homepv.h"
 #include "homehabitat.h"
-#include "industryconsumption.h"
+#include "industryelectricity.h"
+#include "industryheat.h"
 #include "screenindustry2.h"
 #include "finalscreen.h"
 
@@ -39,9 +41,11 @@ public:
     QPushButton *next;
 
     ScreenTitle*            screenTitle;
-    IndustryConsumption*    industryConsumption;
+    IndustryElectricity*    industryElectricity;
+    IndustryHeat*           industryHeat;
     ScreenIndustry2*        screenIndustry2;
-    HomeConsumption*        homeConsumption;
+    HomeElectricity*        homeElectricity;
+    HomeHeat*               homeHeat;
     HomePV*                 homePV;
     HomeHabitat*            homeHabitat;
     FinalScreen*            finalScreen;

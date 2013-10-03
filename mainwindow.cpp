@@ -26,13 +26,15 @@ MainWindow::MainWindow(QWidget *parent)
     title->setScaledContents(true);
 
     //Screens
-    screenTitle = new ScreenTitle(this);
-    industryConsumption = new IndustryConsumption(this);    industryConsumption->hide();
-    screenIndustry2 = new ScreenIndustry2(this);            screenIndustry2->hide();
-    homeConsumption = new HomeConsumption(this);            homeConsumption->hide();
-    homePV = new HomePV(this);                              homePV->hide();
-    homeHabitat = new HomeHabitat(this);                    homeHabitat->hide();
-    finalScreen = new FinalScreen(this);                    finalScreen->hide();
+    screenTitle         = new ScreenTitle(this);
+    industryElectricity = new IndustryElectricity(this);    industryElectricity->hide();
+    industryHeat        = new IndustryHeat(this);           industryHeat->hide();
+    screenIndustry2     = new ScreenIndustry2(this);        screenIndustry2->hide();
+    homeElectricity     = new HomeElectricity(this);        homeElectricity->hide();
+    homeHeat            = new HomeHeat(this);               homeHeat->hide();
+    homePV              = new HomePV(this);                 homePV->hide();
+    homeHabitat         = new HomeHabitat(this);            homeHabitat->hide();
+    finalScreen         = new FinalScreen(this);            finalScreen->hide();
 
     //Previous & Next
     prev = new QPushButton("Quit");
@@ -41,9 +43,11 @@ MainWindow::MainWindow(QWidget *parent)
     //Grid Layout
     layoutMainWindow.addWidget(title,               0, 0, 1, 2);
     layoutMainWindow.addWidget(screenTitle,         1, 0, 1, 2);
-    layoutMainWindow.addWidget(industryConsumption, 1, 0, 1, 2);
+    layoutMainWindow.addWidget(industryElectricity, 1, 0, 1, 2);
+    layoutMainWindow.addWidget(industryHeat,        1, 0, 1, 2);
     layoutMainWindow.addWidget(screenIndustry2,     1, 0, 1, 2);
-    layoutMainWindow.addWidget(homeConsumption,     1, 0, 1, 2);
+    layoutMainWindow.addWidget(homeElectricity,     1, 0, 1, 2);
+    layoutMainWindow.addWidget(homeHeat,            1, 0, 1, 2);
     layoutMainWindow.addWidget(homePV,              1, 0, 1, 2);
     layoutMainWindow.addWidget(homeHabitat,         1, 0, 1, 2);
     layoutMainWindow.addWidget(finalScreen,         1, 0, 1, 2);
@@ -88,63 +92,102 @@ void MainWindow::previousScreen()
     {
         qApp->quit();
     }
-    else if (currentScreen == "industryConsumption")
+
+    //HOME BRANCH
+    else if (currentScreen == "homeElectricity")
     {
-        changeScreen("title", industryConsumption, screenTitle);
+        changeScreen("title", homeElectricity, screenTitle);
         prev->setText("Quit");
+    }
+    else if (currentScreen == "homeHeat")
+    {
+        changeScreen("homeElectricity", homeHeat, homeElectricity);
     }
     else if (currentScreen == "homeHabitat")
     {
-        changeScreen("title", homeHabitat, screenTitle);
+        changeScreen("homeHeat", homeHabitat, homeHeat);
+    }
+    else if (currentScreen == "homePV")
+    {
+        changeScreen("homeHabitat", homePV, homeHabitat);
+    }
+    else if (currentScreen == "final" && screenTitle->home)
+    {
+        changeScreen("homePV", finalScreen, homePV);
+        next->setText("Next >");
+    }
+
+    //INDUSTRY BRANCH
+    else if (currentScreen == "industryElectricity")
+    {
+        changeScreen("title", industryElectricity, screenTitle);
         prev->setText("Quit");
     }
-    else if (currentScreen == "industry2")
-        changeScreen("industryConsumption", screenIndustry2, industryConsumption);
-
-    else if (currentScreen == "homeConsumption")
-        changeScreen("homeHabitat", homeConsumption, homeHabitat);
-
-    else if (currentScreen == "homePV")
-        changeScreen("homeConsumption", homePV, homeConsumption);
-
-    else if (currentScreen == "final")
+    else if (currentScreen == "industryHeat")
     {
-        if (screenTitle->industry)   changeScreen("industry2", finalScreen, screenIndustry2);
-        if (screenTitle->home)       changeScreen("homePV", finalScreen, homePV);
+        changeScreen("industryElectricity", industryHeat, industryElectricity);
+    }
+    else if (currentScreen == "industry2")
+    {
+        changeScreen("industryHeat", screenIndustry2, industryHeat);
+    }
+    else if (currentScreen == "final" && screenTitle->industry)
+    {
+        changeScreen("industry2", finalScreen, screenIndustry2);
         next->setText("Next >");
     }
 }
 
 void MainWindow::nextScreen()
 {
+    // HOME BRANCH
     if (currentScreen == "title" && screenTitle->home)
     {
-        changeScreen("homeHabitat", screenTitle, homeHabitat);
+        changeScreen("homeElectricity", screenTitle, homeElectricity);
         prev->setText("< Previous");
     }
-    else if (currentScreen == "title" && screenTitle->industry)
+    else if (currentScreen == "homeElectricity")
     {
-        changeScreen("industryConsumption", screenTitle, industryConsumption);
-        prev->setText("< Previous");
+        changeScreen("homeHeat", homeElectricity, homeHeat);
     }
-    else if (currentScreen == "industryConsumption")
-        changeScreen("industry2", industryConsumption, screenIndustry2);
-
+    else if (currentScreen == "homeHeat")
+    {
+        changeScreen("homeHabitat", homeHeat, homeHabitat);
+    }
     else if (currentScreen == "homeHabitat" &&
              (homeHabitat->mehrFamHaus || homeHabitat->einFamHaus || homeHabitat->wohnung) &&
              (homeHabitat->eigentuemer || homeHabitat->miete)
             )
-        changeScreen("homeConsumption", homeHabitat, homeConsumption);
-
-    else if (currentScreen == "homeConsumption")
-        changeScreen("homePV", homeConsumption, homePV);
-
-    else if (currentScreen == "industry2" || currentScreen == "homePV")
     {
-        if (currentScreen == "industry2")   changeScreen("final", screenIndustry2, finalScreen);
-        if (currentScreen == "homePV")      changeScreen("final", homePV, finalScreen);
+        changeScreen("homePV", homeHabitat, homePV);
+    }
+    else if (currentScreen == "homePV")
+    {
+        changeScreen("final", homePV, finalScreen);
         next->setText("Send data");
     }
+
+    //INDUSTRY BRANCH
+    else if (currentScreen == "title" && screenTitle->industry)
+    {
+        changeScreen("industryElectricity", screenTitle, industryElectricity);
+        prev->setText("< Previous");
+    }
+    else if (currentScreen == "industryElectricity")
+    {
+        changeScreen("industryHeat", industryElectricity, industryHeat);
+    }
+    else if (currentScreen == "industryHeat")
+    {
+        changeScreen("industry2", industryHeat, screenIndustry2);
+    }
+    else if (currentScreen == "industry2")
+    {
+        changeScreen("final", screenIndustry2, finalScreen);
+        next->setText("Send data");
+    }
+
+    //FINAL SCREEN
     else if (currentScreen == "final")
     {
         if (!dataSent)
@@ -169,14 +212,14 @@ void MainWindow::createDataString()
     str += "&";
 
     //Screen Home Consumption
-    str += "sh1-en_cons=";      str += toStr(homeConsumption->energy_consumption);      str += "&";
-    str += "sh1-en_price=";     str += toStr(homeConsumption->energy_price);            str += "&";
-    str += "sh1-en_bprice=";    str += toStr(homeConsumption->energy_basePrice);        str += "&";
-    str += "sh1-he_cons=";      str += toStr(homeConsumption->heat_consumption);        str += "&";
-    str += "sh1-he_price=";     str += toStr(homeConsumption->heat_price);              str += "&";
-    str += "sh1-gas=";          str += (homeConsumption->gas) ? "true" : "false";       str += "&";
-    str += "sh1-oil=";          str += (homeConsumption->oil) ? "true" : "false";       str += "&";
-    str += "sh1-hotwater=";     str += (homeConsumption->hotWater) ? "true" : "false";  str += "&";
+    str += "sh1-en_cons=";      str += toStr(homeElectricity->energy_consumption);      str += "&";
+    str += "sh1-en_price=";     str += toStr(homeElectricity->energy_price);            str += "&";
+    str += "sh1-en_bprice=";    str += toStr(homeElectricity->energy_basePrice);        str += "&";
+    str += "sh1-he_cons=";      str += toStr(homeElectricity->heat_consumption);        str += "&";
+    str += "sh1-he_price=";     str += toStr(homeElectricity->heat_price);              str += "&";
+    str += "sh1-gas=";          str += (homeElectricity->gas) ? "true" : "false";       str += "&";
+    str += "sh1-oil=";          str += (homeElectricity->oil) ? "true" : "false";       str += "&";
+    str += "sh1-hotwater=";     str += (homeElectricity->hotWater) ? "true" : "false";  str += "&";
 
     //Screen Home PV
     str += "sh2-surf=";     str += toStr(homePV->surface);  str += "&";
@@ -191,15 +234,15 @@ void MainWindow::createDataString()
     str += "sh3-miete=";    str += (homeHabitat->miete) ? "true" : "false";         str += "&";
 
     //Screen Industry Consumption
-    str += "si1-cons=";     str += toStr(industryConsumption->consumption);         str += "&";
-    str += "si1-htap=";     str += toStr(industryConsumption->hTArbPreis);          str += "&";
-    str += "si1-ntap=";     str += toStr(industryConsumption->nTArbPreis);          str += "&";
-    str += "si1-netz=";     str += toStr(industryConsumption->netzkosten);          str += "&";
-    str += "si1-eeg=";      str += (industryConsumption->eEG) ? "true" : "false";   str += "&";
-    str += "si1-kwk=";      str += toStr(industryConsumption->kWK);                 str += "&";
-    str += "si1-strsmg=";   str += toStr(industryConsumption->stromstG);            str += "&";
-    str += "si1-off=";      str += toStr(industryConsumption->offshore);            str += "&";
-    str += "si1-leist=";    str += toStr(industryConsumption->leistung);            str += "&";
+    str += "si1-cons=";     str += toStr(industryElectricity->consumption);         str += "&";
+    str += "si1-htap=";     str += toStr(industryElectricity->hTArbPreis);          str += "&";
+    str += "si1-ntap=";     str += toStr(industryElectricity->nTArbPreis);          str += "&";
+    str += "si1-netz=";     str += toStr(industryElectricity->netzkosten);          str += "&";
+    str += "si1-eeg=";      str += (industryElectricity->eEG) ? "true" : "false";   str += "&";
+    str += "si1-kwk=";      str += toStr(industryElectricity->kWK);                 str += "&";
+    str += "si1-strsmg=";   str += toStr(industryElectricity->stromstG);            str += "&";
+    str += "si1-off=";      str += toStr(industryElectricity->offshore);            str += "&";
+    str += "si1-leist=";    str += toStr(industryElectricity->leistung);            str += "&";
 
     //Screen Industry 2
 

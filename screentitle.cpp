@@ -18,7 +18,7 @@ ScreenTitle::ScreenTitle(QWidget *parent)
                               <p style='font-weight:bold;'>Please, choose a category:</p>");
 
     QRadioButton* radioIndustry =   new QRadioButton(tr("Industry"));
-    QRadioButton* radioHome =       new QRadioButton(tr("Home"));
+    QRadioButton* radioHome =       new QRadioButton(tr("Private user"));
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(text);
