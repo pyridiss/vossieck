@@ -1,5 +1,5 @@
-#ifndef SCREENHOME2_H
-#define SCREENHOME2_H
+#ifndef HOMEPV_H
+#define HOMEPV_H
 
 #include <QWidget>
 
@@ -23,4 +23,4 @@ public slots:
     void setAngle(QString _new);
 };
 
-#endif // SCREENHOME2_H
+#endif // HOMEPV_H

@@ -1,5 +1,5 @@
-#ifndef SCREENHOME1_H
-#define SCREENHOME1_H
+#ifndef HOMECONSUMPTION_H
+#define HOMECONSUMPTION_H
 
 #include <QWidget>
 
@@ -32,4 +32,4 @@ public slots:
     void setHotWater(bool _new);
 };
 
-#endif // SCREENHOME1_H
+#endif // HOMECONSUMPTION_H

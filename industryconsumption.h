@@ -1,5 +1,5 @@
-#ifndef SCREENINDUSTRY1_H
-#define SCREENINDUSTRY1_H
+#ifndef INDUSTRYCONSUMPTION_H
+#define INDUSTRYCONSUMPTION_H
 
 #include <QWidget>
 
@@ -34,4 +34,4 @@ public slots:
     void setLeistung(QString _new);
 };
 
-#endif // SCREENINDUSTRY1_H
+#endif // INDUSTRYCONSUMPTION_H
