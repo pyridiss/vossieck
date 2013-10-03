@@ -6,7 +6,6 @@
 #include <QPixmap>
 
 #include "mainwindow.h"
-#include <iostream>
 
 //Defined in main.cpp
 int getScreenWidth();
@@ -209,8 +208,6 @@ void MainWindow::createDataString()
     str += "address=";      str += finalScreen->address;    str += "&";
     str += "phone=";        str += finalScreen->phone;      str += "&";
     str += "email=";        str += finalScreen->email;
-
-    std::cout << str.toStdString() << std::endl;
 
     //Sending data string
     finalScreen->setDataString(str);
