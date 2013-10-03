@@ -2,7 +2,9 @@
 #include <QLabel>
 #include <QRadioButton>
 #include <QGroupBox>
+#include <QGridLayout>
 #include <QVBoxLayout>
+#include <QLineEdit>
 
 #include <iostream>
 
@@ -17,14 +19,14 @@ HomeHabitat::HomeHabitat(QWidget *parent)
     eigentuemer = false;
     miete = false;
 
-    QLabel* labelHaus =  new QLabel("<span style='font-size:20pt;'>Wohnsituation</span>");
-    QLabel* labelEigen = new QLabel("<span style='font-size:20pt;'>Eigentümer / Miete</span>");
+    QLabel* labelHaus    = new QLabel("<span style='font-size:20pt;'>Wohnsituation</span>");
+    QLabel* labelEigen   = new QLabel("<span style='font-size:20pt;'>Eigentümer / Miete</span>");
 
-    QRadioButton* radioMehrFamHaus =    new QRadioButton(tr("Mehrfamilienhaus"));
-    QRadioButton* radioEinFamHaus =     new QRadioButton(tr("Einfamlienhaus"));
-    QRadioButton* radioWohnung =        new QRadioButton(tr("Wohnung"));
-    QRadioButton* radioEigentuemer =    new QRadioButton(tr("Eigentümer"));
-    QRadioButton* radioMiete =          new QRadioButton(tr("Miete"));
+    QRadioButton* radioMehrFamHaus =    new QRadioButton("Mehrfamilienhaus");
+    QRadioButton* radioEinFamHaus =     new QRadioButton("Einfamlienhaus");
+    QRadioButton* radioWohnung =        new QRadioButton("Wohnung");
+    QRadioButton* radioEigentuemer =    new QRadioButton("Eigentümer");
+    QRadioButton* radioMiete =          new QRadioButton("Miete");
 
     QGroupBox *groupHaus = new QGroupBox;
     QVBoxLayout *layoutHaus = new QVBoxLayout;
@@ -43,9 +45,22 @@ HomeHabitat::HomeHabitat(QWidget *parent)
     layoutEigen->addStretch(1);
     groupEigen->setLayout(layoutEigen);
 
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->addWidget(groupHaus);
-    layout->addWidget(groupEigen);
+    QLabel* labelSurface   = new QLabel("Floor surface:"); labelSurface->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLineEdit *lineSurface = new QLineEdit();
+    QLabel *unitSurface    = new QLabel("m²");
+
+    QGridLayout *layout = new QGridLayout;
+
+    layout->addWidget(groupHaus,    0, 0, 1, 3);
+    layout->addWidget(groupEigen,   1, 0, 1, 3);
+    layout->addWidget(labelSurface, 2, 0, 1, 1);
+    layout->addWidget(lineSurface,  2, 1, 1, 1);
+    layout->addWidget(unitSurface,  2, 2, 1, 1);
+
+    layout->setColumnStretch(0, 1);
+    layout->setColumnStretch(1, 2);
+    layout->setColumnStretch(2, 1);
+
     setLayout(layout);
 
     connect(radioMehrFamHaus,   SIGNAL(clicked()), this, SLOT(setMehrFamHaus()));
@@ -53,6 +68,9 @@ HomeHabitat::HomeHabitat(QWidget *parent)
     connect(radioWohnung,       SIGNAL(clicked()), this, SLOT(setWohnung()));
     connect(radioEigentuemer,   SIGNAL(clicked()), this, SLOT(setEigentuemer()));
     connect(radioMiete,         SIGNAL(clicked()), this, SLOT(setMiete()));
+
+    connect(lineSurface, SIGNAL(textEdited(QString)),   this, SLOT(setSurface(QString)));
+    connect(lineSurface, SIGNAL(returnPressed()),       this, SLOT(setFocus()));
 }
 
 //Setters:
@@ -88,4 +106,9 @@ void HomeHabitat::setMiete()
 {
     eigentuemer = false;
     miete = true;
+}
+
+void HomeHabitat::setSurface(QString _new)
+{
+    surface = _new.toInt();
 }

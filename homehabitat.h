@@ -1,5 +1,5 @@
-#ifndef SCREENHOME3_H
-#define SCREENHOME3_H
+#ifndef HOMEHABITAT_H
+#define HOMEHABITAT_H
 
 #include <QWidget>
 
@@ -17,6 +17,8 @@ public:
     bool eigentuemer;
     bool miete;
 
+    int surface;
+
 signals:
     
 public slots:
@@ -26,6 +28,8 @@ public slots:
 
     void setEigentuemer();
     void setMiete();
+
+    void setSurface(QString _new);
 };
 
-#endif // SCREENHOME3_H
+#endif // HOMEHABITAT_H
