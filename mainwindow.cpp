@@ -212,14 +212,14 @@ void MainWindow::createDataString()
     str += "&";
 
     //Screen Home Consumption
-    str += "sh1-en_cons=";      str += toStr(homeElectricity->energy_consumption);      str += "&";
-    str += "sh1-en_price=";     str += toStr(homeElectricity->energy_price);            str += "&";
-    str += "sh1-en_bprice=";    str += toStr(homeElectricity->energy_basePrice);        str += "&";
-    str += "sh1-he_cons=";      str += toStr(homeElectricity->heat_consumption);        str += "&";
-    str += "sh1-he_price=";     str += toStr(homeElectricity->heat_price);              str += "&";
-    str += "sh1-gas=";          str += (homeElectricity->gas) ? "true" : "false";       str += "&";
-    str += "sh1-oil=";          str += (homeElectricity->oil) ? "true" : "false";       str += "&";
-    str += "sh1-hotwater=";     str += (homeElectricity->hotWater) ? "true" : "false";  str += "&";
+    str += "sh1-en_cons=";      str += toStr(homeElectricity->energy_consumption);  str += "&";
+    str += "sh1-en_price=";     str += toStr(homeElectricity->energy_price);        str += "&";
+    str += "sh1-en_bprice=";    str += toStr(homeElectricity->energy_basePrice);    str += "&";
+    str += "sh1-he_cons=";      str += toStr(homeHeat->heat_consumption);           str += "&";
+    str += "sh1-he_price=";     str += toStr(homeHeat->heat_price);                 str += "&";
+    str += "sh1-gas=";          str += (homeHeat->gas) ? "true" : "false";          str += "&";
+    str += "sh1-oil=";          str += (homeHeat->oil) ? "true" : "false";          str += "&";
+    str += "sh1-hotwater=";     str += (homeHeat->hotWater) ? "true" : "false";     str += "&";
 
     //Screen Home PV
     str += "sh2-surf=";     str += toStr(homePV->surface);  str += "&";
