@@ -50,7 +50,7 @@ IndustryElectricity::IndustryElectricity(QWidget *parent) :
     QLabel *unitKWK =               new QLabel("€");
 
     QLineEdit *lineStromstG =       new QLineEdit();
-    QLabel *unitStromstG =          new QLabel("€");
+    QLabel *unitStromstG =          new QLabel("c€/kWh");
 
     QLineEdit *lineOffshore =       new QLineEdit();
     QLabel *unitOffshore =          new QLabel("€");
