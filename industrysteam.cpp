@@ -6,9 +6,9 @@
 #include <QDoubleSpinBox>
 #include <QCheckBox>
 
-#include "screenindustry2.h"
+#include "industrysteam.h"
 
-ScreenIndustry2::ScreenIndustry2(QWidget *parent) :
+IndustrySteam::IndustrySteam(QWidget *parent) :
     QWidget(parent)
 {
     QLabel *label = new QLabel("<span style='font-size: 20pt;'>Screen Industry 2</span>");

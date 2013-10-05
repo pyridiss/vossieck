@@ -15,7 +15,7 @@
 #include "homehabitat.h"
 #include "industryelectricity.h"
 #include "industryheat.h"
-#include "screenindustry2.h"
+#include "industrysteam.h"
 #include "finalscreen.h"
 
 using namespace std;
@@ -43,7 +43,7 @@ public:
     ScreenTitle*            screenTitle;
     IndustryElectricity*    industryElectricity;
     IndustryHeat*           industryHeat;
-    ScreenIndustry2*        screenIndustry2;
+    IndustrySteam*          industrySteam;
     HomeElectricity*        homeElectricity;
     HomeHeat*               homeHeat;
     HomePV*                 homePV;

@@ -15,26 +15,26 @@ TEMPLATE = app
 SOURCES += main.cpp \
     mainwindow.cpp \
     screentitle.cpp \
-    screenindustry2.cpp \
     finalscreen.cpp \
     homepv.cpp \
     homehabitat.cpp \
     homeheat.cpp \
     industryelectricity.cpp \
     industryheat.cpp \
-    homeelectricity.cpp
+    homeelectricity.cpp \
+    industrysteam.cpp
 
 HEADERS  += \
     mainwindow.h \
     screentitle.h \
-    screenindustry2.h \
     finalscreen.h \
     homepv.h \
     homehabitat.h \
     homeheat.h \
     industryelectricity.h \
     industryheat.h \
-    homeelectricity.h
+    homeelectricity.h \
+    industrysteam.h
 
 FORMS    +=
 

@@ -29,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     screenTitle         = new ScreenTitle(this);
     industryElectricity = new IndustryElectricity(this);    industryElectricity->hide();
     industryHeat        = new IndustryHeat(this);           industryHeat->hide();
-    screenIndustry2     = new ScreenIndustry2(this);        screenIndustry2->hide();
+    industrySteam       = new IndustrySteam(this);          industrySteam->hide();
     homeElectricity     = new HomeElectricity(this);        homeElectricity->hide();
     homeHeat            = new HomeHeat(this);               homeHeat->hide();
     homePV              = new HomePV(this);                 homePV->hide();
@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent)
     layoutMainWindow.addWidget(screenTitle,         1, 0, 1, 2);
     layoutMainWindow.addWidget(industryElectricity, 1, 0, 1, 2);
     layoutMainWindow.addWidget(industryHeat,        1, 0, 1, 2);
-    layoutMainWindow.addWidget(screenIndustry2,     1, 0, 1, 2);
+    layoutMainWindow.addWidget(industrySteam  ,     1, 0, 1, 2);
     layoutMainWindow.addWidget(homeElectricity,     1, 0, 1, 2);
     layoutMainWindow.addWidget(homeHeat,            1, 0, 1, 2);
     layoutMainWindow.addWidget(homePV,              1, 0, 1, 2);
@@ -130,13 +130,13 @@ void MainWindow::previousScreen()
     {
         changeScreen("industryElectricity", industryHeat, industryElectricity);
     }
-    else if (currentScreen == "industry2")
+    else if (currentScreen == "industrySteam")
     {
-        changeScreen("industryHeat", screenIndustry2, industryHeat);
+        changeScreen("industryHeat", industrySteam, industryHeat);
     }
     else if (currentScreen == "final" && screenTitle->industry)
     {
-        changeScreen("industry2", finalScreen, screenIndustry2);
+        changeScreen("industrySteam", finalScreen, industrySteam);
         next->setText("Next >");
     }
 }
@@ -187,11 +187,11 @@ void MainWindow::nextScreen()
     }
     else if (currentScreen == "industryHeat")
     {
-        changeScreen("industry2", industryHeat, screenIndustry2);
+        changeScreen("industrySteam", industryHeat, industrySteam);
     }
-    else if (currentScreen == "industry2")
+    else if (currentScreen == "industrySteam")
     {
-        changeScreen("final", screenIndustry2, finalScreen);
+        changeScreen("final", industrySteam, finalScreen);
         next->setText("Send data");
     }
 
@@ -252,7 +252,7 @@ void MainWindow::createDataString()
     str += "si1-off=";      str += toStr(industryElectricity->offshore);            str += "&";
     str += "si1-leist=";    str += toStr(industryElectricity->leistung);            str += "&";
 
-    //Screen Industry 2
+    //Screen Industry Steam
 
     //Final Screen
     str += "name=";         str += finalScreen->name;       str += "&";
