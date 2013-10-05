@@ -52,10 +52,10 @@ HomeHeat::HomeHeat(QWidget *parent) :
 
     layout->setRowStretch(0, 1);
     layout->setRowStretch(6, 1);
-    layout->setColumnStretch(0, 1);
+    layout->setColumnStretch(0, 2);
     layout->setColumnStretch(1, 1);
-    layout->setColumnStretch(2, 1);
-    layout->setColumnStretch(3, 1);
+    layout->setColumnStretch(2, 3);
+    layout->setColumnStretch(3, 2);
     setLayout(layout);
 
     connect(lineHeatConsumption,    SIGNAL(textEdited(QString)),    this, SLOT(setHeat_consumption(QString)));

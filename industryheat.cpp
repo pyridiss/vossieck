@@ -51,10 +51,10 @@ IndustryHeat::IndustryHeat(QWidget *parent) :
 
     layout->setRowStretch(0, 1);
     layout->setRowStretch(5, 1);
-    layout->setColumnStretch(0, 1);
+    layout->setColumnStretch(0, 2);
     layout->setColumnStretch(1, 1);
-    layout->setColumnStretch(2, 1);
-    layout->setColumnStretch(3, 1);
+    layout->setColumnStretch(2, 3);
+    layout->setColumnStretch(3, 2);
     setLayout(layout);
 
     connect(lineConsumption,    SIGNAL(textEdited(QString)),    this, SLOT(setConsumption(QString)));
