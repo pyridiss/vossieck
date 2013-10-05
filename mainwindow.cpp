@@ -113,7 +113,10 @@ void MainWindow::previousScreen()
     }
     else if (currentScreen == "final" && screenTitle->home)
     {
-        changeScreen("homePV", finalScreen, homePV);
+        if (homeHabitat->einFamHaus && homeHabitat->eigentuemer)
+            changeScreen("homePV", finalScreen, homePV);
+        else
+            changeScreen("homeHabitat", finalScreen, homeHabitat);
         next->setText("Next >");
     }
 
@@ -154,12 +157,17 @@ void MainWindow::nextScreen()
     {
         changeScreen("homeHabitat", homeHeat, homeHabitat);
     }
-    else if (currentScreen == "homeHabitat" &&
-             (homeHabitat->mehrFamHaus || homeHabitat->einFamHaus || homeHabitat->wohnung) &&
-             (homeHabitat->eigentuemer || homeHabitat->miete)
-            )
+    else if (currentScreen == "homeHabitat")
     {
-        changeScreen("homePV", homeHabitat, homePV);
+        if (homeHabitat->einFamHaus && homeHabitat->eigentuemer)
+            changeScreen("homePV", homeHabitat, homePV);
+        else if ((homeHabitat->mehrFamHaus || homeHabitat->einFamHaus || homeHabitat->wohnung) &&
+                 (homeHabitat->eigentuemer || homeHabitat->miete)
+                )
+        {
+            changeScreen("final", homeHabitat, finalScreen);
+            next->setText("Send data");
+        }
     }
     else if (currentScreen == "homePV")
     {
