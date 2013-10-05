@@ -13,16 +13,16 @@
 FinalScreen::FinalScreen(QWidget *parent) :
     QWidget(parent)
 {
-    QLabel *title = new QLabel("<span style='font-size: 20pt;'>Personal information</span>");
+    QLabel *title = new QLabel(tr("<span style='font-size: 20pt;'>Personal information</span>"));
     title->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 
-    QLabel *text = new QLabel("Please, give us personal information, we will<br />contact you soon!");
+    QLabel *text = new QLabel(tr("Please, give us personal information, we will<br />contact you soon!"));
     text->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 
-    QLabel *labelName    = new QLabel("Name");          labelName->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    QLabel *labelAddress = new QLabel("Address");       labelAddress->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    QLabel *labelPhone   = new QLabel("Phone number");  labelPhone->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    QLabel *labelEmail   = new QLabel("Email adress");  labelEmail->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelName    = new QLabel(tr("Name"));          labelName->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelAddress = new QLabel(tr("Address"));       labelAddress->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelPhone   = new QLabel(tr("Phone number"));  labelPhone->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelEmail   = new QLabel(tr("Email adress"));  labelEmail->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
     QLineEdit *lineName    = new QLineEdit();
     QLineEdit *lineAddress = new QLineEdit();
@@ -79,7 +79,7 @@ void FinalScreen::sendData()
 
     if (reply->error() != QNetworkReply::NoError)
         labelError->setText(reply->errorString());
-    else labelError->setText("Information sent!");
+    else labelError->setText(tr("Information sent!"));
 }
 
 void FinalScreen::setName(QString _new)

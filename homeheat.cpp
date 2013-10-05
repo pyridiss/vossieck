@@ -15,24 +15,24 @@ HomeHeat::HomeHeat(QWidget *parent) :
     oil = false;
     hotWater = false;
 
-    QLabel *labelHeat = new QLabel("<span style='font-size: 20pt;'>Heat</span>");
+    QLabel *labelHeat = new QLabel(tr("<span style='font-size: 20pt;'>Heat</span>"));
     labelHeat->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
 
-    QLabel *labelHeatConsumption = new QLabel("Consumption");   labelHeatConsumption->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    QLabel *labelHeatPrice       = new QLabel("Price");         labelHeatPrice->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelHeatConsumption = new QLabel(tr("Consumption"));   labelHeatConsumption->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelHeatPrice       = new QLabel(tr("Price"));         labelHeatPrice->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
     QLineEdit *lineHeatConsumption  = new QLineEdit();
-    QLabel *unitHeatConsumption     = new QLabel("kWh/year");
+    QLabel *unitHeatConsumption     = new QLabel(tr("kWh/year"));
 
     QLineEdit *lineHeatPrice        = new QLineEdit();
-    QLabel *unitHeatPrice           = new QLabel("c€/kWh");
+    QLabel *unitHeatPrice           = new QLabel(tr("c€/kWh"));
 
-    QLabel *labelFuel = new QLabel("Fuel:");                    labelFuel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    QRadioButton* radioGas       = new QRadioButton("Gas");
-    QRadioButton* radioOil       = new QRadioButton("Oil");
-    QRadioButton* radioOtherMean = new QRadioButton("Other mean:");
+    QLabel *labelFuel = new QLabel(tr("Fuel:"));                    labelFuel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QRadioButton* radioGas       = new QRadioButton(tr("Gas"));
+    QRadioButton* radioOil       = new QRadioButton(tr("Oil"));
+    QRadioButton* radioOtherMean = new QRadioButton(tr("Other mean:"));
     QLineEdit* lineOtherMean     = new QLineEdit();
-    QCheckBox* checkHotWater     = new QCheckBox("Hot Water included");
+    QCheckBox* checkHotWater     = new QCheckBox(tr("Hot Water included"));
 
     QGridLayout *layout = new QGridLayout;
 

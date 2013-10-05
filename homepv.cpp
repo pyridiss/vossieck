@@ -12,29 +12,29 @@ HomePV::HomePV(QWidget *parent) :
     direction = "North";
     angle = 0;
 
-    QLabel *labelPanels = new QLabel("<span style='font-size:20pt;'>Photovoltaic panels</span>");
+    QLabel *labelPanels = new QLabel(tr("<span style='font-size:20pt;'>Photovoltaic panels</span>"));
     labelPanels->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
 
-    QLabel *labelSurface = new QLabel("Roof surface");  labelSurface->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    QLabel *labelDirection = new QLabel("Direction");   labelDirection->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    QLabel *labelAngle = new QLabel("Angle");           labelAngle->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelSurface = new QLabel(tr("Roof surface"));  labelSurface->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelDirection = new QLabel(tr("Direction"));   labelDirection->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelAngle = new QLabel(tr("Angle"));           labelAngle->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
     QLineEdit *lineSurface =    new QLineEdit();
-    QLabel *unitSurface =       new QLabel("m²");
+    QLabel *unitSurface =       new QLabel(tr("m²"));
 
     QComboBox *lineDirection =  new QComboBox();
 
     QLineEdit *lineAngle =      new QLineEdit();
-    QLabel* unitAngle =         new QLabel("°");
+    QLabel* unitAngle =         new QLabel(tr("°"));
 
-    lineDirection->addItem("North");
-    lineDirection->addItem("North East");
-    lineDirection->addItem("East");
-    lineDirection->addItem("South East");
-    lineDirection->addItem("South");
-    lineDirection->addItem("South West");
-    lineDirection->addItem("West");
-    lineDirection->addItem("North West");
+    lineDirection->addItem(tr("North"));
+    lineDirection->addItem(tr("North East"));
+    lineDirection->addItem(tr("East"));
+    lineDirection->addItem(tr("South East"));
+    lineDirection->addItem(tr("South"));
+    lineDirection->addItem(tr("South West"));
+    lineDirection->addItem(tr("West"));
+    lineDirection->addItem(tr("North West"));
 
     QGridLayout *layout = new QGridLayout;
 

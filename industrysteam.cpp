@@ -21,12 +21,12 @@ IndustrySteam::IndustrySteam(QWidget *parent) :
     gas = false;
     oil = false;
 
-    QLabel *labelSteam = new QLabel("<span style='font-size: 20pt;'>Steam</span>");
+    QLabel *labelSteam = new QLabel(tr("<span style='font-size: 20pt;'>Steam</span>"));
     labelSteam->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
 
-    QLabel *labelQuestion = new QLabel("Does your production process use steam?");
-    QRadioButton *radioSteamYes = new QRadioButton("Yes");
-    QRadioButton *radioSteamNo  = new QRadioButton("No");
+    QLabel *labelQuestion = new QLabel(tr("Does your production process use steam?"));
+    QRadioButton *radioSteamYes = new QRadioButton(tr("Yes"));
+    QRadioButton *radioSteamNo  = new QRadioButton(tr("No"));
 
     QGroupBox *groupQuestion    = new QGroupBox;
     QHBoxLayout *layoutQuestion = new QHBoxLayout;
@@ -35,27 +35,27 @@ IndustrySteam::IndustrySteam(QWidget *parent) :
     layoutQuestion->addWidget(radioSteamNo,  1);
     groupQuestion->setLayout(layoutQuestion);
 
-    QLabel *labelPressure       = new QLabel("Pressure");       labelPressure->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    QLabel *labelConsumption    = new QLabel("Consumption");    labelConsumption->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    QLabel *labelTemperature    = new QLabel("Price");          labelTemperature->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelPressure       = new QLabel(tr("Pressure"));       labelPressure->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelConsumption    = new QLabel(tr("Consumption"));    labelConsumption->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelTemperature    = new QLabel(tr("Price"));          labelTemperature->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
     QLineEdit *linePressure     = new QLineEdit();
-    QLabel *unitPressure        = new QLabel("bars");
+    QLabel *unitPressure        = new QLabel(tr("bars"));
 
     QLineEdit *lineConsumption  = new QLineEdit();
-    QLabel *unitConsumption     = new QLabel("kWh/year");
+    QLabel *unitConsumption     = new QLabel(tr("kWh/year"));
 
     QLineEdit *lineTemperature  = new QLineEdit();
-    QLabel *unitTemperature     = new QLabel("°C");
+    QLabel *unitTemperature     = new QLabel(tr("°C"));
 
-    QLabel *labelFuel = new QLabel("Fuel:");                    labelFuel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    QRadioButton* radioGas       = new QRadioButton("Gas");
-    QRadioButton* radioOil       = new QRadioButton("Oil");
-    QRadioButton* radioOtherMean = new QRadioButton("Other mean:");
+    QLabel *labelFuel = new QLabel(tr("Fuel:"));                    labelFuel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QRadioButton* radioGas       = new QRadioButton(tr("Gas"));
+    QRadioButton* radioOil       = new QRadioButton(tr("Oil"));
+    QRadioButton* radioOtherMean = new QRadioButton(tr("Other mean:"));
     QLineEdit* lineOtherMean     = new QLineEdit();
 
     QGroupBox *groupYes = new QGroupBox;
-    groupYes->setTitle("If yes, please fill this form:");
+    groupYes->setTitle(tr("If yes, please fill this form:"));
     QGridLayout *layoutYes = new QGridLayout;
     layoutYes->addWidget(labelPressure,         0, 0, 1, 1);
     layoutYes->addWidget(labelConsumption,      1, 0, 1, 1);

@@ -13,21 +13,21 @@ HomeElectricity::HomeElectricity(QWidget *parent) :
     energy_price = 0;
     energy_basePrice = 0;
 
-    QLabel *labelEnergy = new QLabel("<span style='font-size: 20pt;'>Energy</span>");
+    QLabel *labelEnergy = new QLabel(tr("<span style='font-size: 20pt;'>Energy</span>"));
     labelEnergy->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
 
-    QLabel *labelEnergyConsumption = new QLabel("Consumption"); labelEnergyConsumption->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    QLabel *labelEnergyPrice       = new QLabel("Price");       labelEnergyPrice->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    QLabel *labelEnergyBasePrice   = new QLabel("Base Price");  labelEnergyBasePrice->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelEnergyConsumption = new QLabel(tr("Consumption")); labelEnergyConsumption->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelEnergyPrice       = new QLabel(tr("Price"));       labelEnergyPrice->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelEnergyBasePrice   = new QLabel(tr("Base Price"));  labelEnergyBasePrice->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
     QLineEdit *lineEnergyConsumption    = new QLineEdit();
-    QLabel *unitEnergyConsumption       = new QLabel("kWh/Year");
+    QLabel *unitEnergyConsumption       = new QLabel(tr("kWh/Year"));
 
     QLineEdit *lineEnergyPrice          = new QLineEdit();
-    QLabel *unitEnergyPrice             = new QLabel("c€/kWh");
+    QLabel *unitEnergyPrice             = new QLabel(tr("c€/kWh"));
 
     QLineEdit *lineEnergyBasePrice      = new QLineEdit();
-    QLabel *unitEnergyBasePrice         = new QLabel("€/Month");
+    QLabel *unitEnergyBasePrice         = new QLabel(tr("€/Month"));
 
 
     QGridLayout *layout = new QGridLayout;

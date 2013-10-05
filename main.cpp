@@ -2,6 +2,7 @@
 #include <QFont>
 #include <QDesktopWidget>
 #include <QIcon>
+#include <QTranslator>
 
 #include <sstream>
 
@@ -44,12 +45,17 @@ QString toStr(double d)
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    MainWindow window;
 
     QLocale::setDefault(QLocale::German);
 
+    QTranslator translator;
+    translator.load(":/app_" + QLocale::system().name());
+    app.installTranslator(&translator);
+
     QFont font("Times", 12);
     QApplication::setFont(font);
+
+    MainWindow window;
 
     QIcon icon(":/Icon.png");
     window.setWindowIcon(icon);

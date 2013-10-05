@@ -37,8 +37,8 @@ MainWindow::MainWindow(QWidget *parent)
     finalScreen         = new FinalScreen(this);            finalScreen->hide();
 
     //Previous & Next
-    prev = new QPushButton("Quit");
-    next = new QPushButton("Next >");
+    prev = new QPushButton(tr("Quit"));
+    next = new QPushButton(tr("Next >"));
 
     //Grid Layout
     layoutMainWindow.addWidget(title,               0, 0, 1, 2);
@@ -97,7 +97,7 @@ void MainWindow::previousScreen()
     else if (currentScreen == "homeElectricity")
     {
         changeScreen("title", homeElectricity, screenTitle);
-        prev->setText("Quit");
+        prev->setText(tr("Quit"));
     }
     else if (currentScreen == "homeHeat")
     {
@@ -117,14 +117,14 @@ void MainWindow::previousScreen()
             changeScreen("homePV", finalScreen, homePV);
         else
             changeScreen("homeHabitat", finalScreen, homeHabitat);
-        next->setText("Next >");
+        next->setText(tr("Next >"));
     }
 
     //INDUSTRY BRANCH
     else if (currentScreen == "industryElectricity")
     {
         changeScreen("title", industryElectricity, screenTitle);
-        prev->setText("Quit");
+        prev->setText(tr("Quit"));
     }
     else if (currentScreen == "industryHeat")
     {
@@ -137,7 +137,7 @@ void MainWindow::previousScreen()
     else if (currentScreen == "final" && screenTitle->industry)
     {
         changeScreen("industrySteam", finalScreen, industrySteam);
-        next->setText("Next >");
+        next->setText(tr("Next >"));
     }
 }
 
@@ -147,7 +147,7 @@ void MainWindow::nextScreen()
     if (currentScreen == "title" && screenTitle->home)
     {
         changeScreen("homeElectricity", screenTitle, homeElectricity);
-        prev->setText("< Previous");
+        prev->setText(tr("< Previous"));
     }
     else if (currentScreen == "homeElectricity")
     {
@@ -166,20 +166,20 @@ void MainWindow::nextScreen()
                 )
         {
             changeScreen("final", homeHabitat, finalScreen);
-            next->setText("Send data");
+            next->setText(tr("Send data"));
         }
     }
     else if (currentScreen == "homePV")
     {
         changeScreen("final", homePV, finalScreen);
-        next->setText("Send data");
+        next->setText(tr("Send data"));
     }
 
     //INDUSTRY BRANCH
     else if (currentScreen == "title" && screenTitle->industry)
     {
         changeScreen("industryElectricity", screenTitle, industryElectricity);
-        prev->setText("< Previous");
+        prev->setText(tr("< Previous"));
     }
     else if (currentScreen == "industryElectricity")
     {
@@ -192,7 +192,7 @@ void MainWindow::nextScreen()
     else if (currentScreen == "industrySteam")
     {
         changeScreen("final", industrySteam, finalScreen);
-        next->setText("Send data");
+        next->setText(tr("Send data"));
     }
 
     //FINAL SCREEN
@@ -202,7 +202,7 @@ void MainWindow::nextScreen()
         {
             createDataString();
             finalScreen->sendData();
-            next->setText("Quit");
+            next->setText(tr("Quit"));
             dataSent = true;
         }
         else

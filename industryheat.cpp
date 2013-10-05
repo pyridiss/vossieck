@@ -16,22 +16,22 @@ IndustryHeat::IndustryHeat(QWidget *parent) :
     gas = false;
     oil = false;
 
-    QLabel *labelHeat = new QLabel("<span style='font-size: 20pt;'>Heat</span>");
+    QLabel *labelHeat = new QLabel(tr("<span style='font-size: 20pt;'>Heat</span>"));
     labelHeat->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
 
-    QLabel *labelConsumption = new QLabel("Consumption");   labelConsumption->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    QLabel *labelPrice       = new QLabel("Price");         labelPrice->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelConsumption = new QLabel(tr("Consumption"));   labelConsumption->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QLabel *labelPrice       = new QLabel(tr("Price"));         labelPrice->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
     QLineEdit *lineConsumption  = new QLineEdit();
-    QLabel *unitConsumption     = new QLabel("kWh/year");
+    QLabel *unitConsumption     = new QLabel(tr("kWh/year"));
 
     QLineEdit *linePrice        = new QLineEdit();
-    QLabel *unitPrice           = new QLabel("c€/kWh");
+    QLabel *unitPrice           = new QLabel(tr("c€/kWh"));
 
-    QLabel *labelFuel = new QLabel("Fuel:");                    labelFuel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    QRadioButton* radioGas       = new QRadioButton("Gas");
-    QRadioButton* radioOil       = new QRadioButton("Oil");
-    QRadioButton* radioOtherMean = new QRadioButton("Other mean:");
+    QLabel *labelFuel = new QLabel(tr("Fuel:"));                    labelFuel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QRadioButton* radioGas       = new QRadioButton(tr("Gas"));
+    QRadioButton* radioOil       = new QRadioButton(tr("Oil"));
+    QRadioButton* radioOtherMean = new QRadioButton(tr("Other mean:"));
     QLineEdit* lineOtherMean     = new QLineEdit();
 
     QGridLayout *layout = new QGridLayout;

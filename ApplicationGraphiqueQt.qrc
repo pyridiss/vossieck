@@ -4,5 +4,8 @@
         <file>logo.jpg</file>
         <file>icon.svg</file>
         <file>Icon.png</file>
+        <file>app_fr.qm</file>
+        <file>app_de.ts</file>
+        <file>app_de.qm</file>
     </qresource>
 </RCC>

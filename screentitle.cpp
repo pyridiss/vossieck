@@ -13,9 +13,9 @@ ScreenTitle::ScreenTitle(QWidget *parent)
     home = false;
     industry = false;
 
-    QLabel* text = new QLabel("<p><span style='font-weight:bold'>Introduction</span><br />\
+    QLabel* text = new QLabel(tr("<p><span style='font-weight:bold'>Introduction</span><br />\
                               This text introduces the program.</p>\
-                              <p style='font-weight:bold;'>Please, choose a category:</p>");
+                              <p style='font-weight:bold;'>Please, choose a category:</p>"));
 
     QRadioButton* radioIndustry =   new QRadioButton(tr("Industry"));
     QRadioButton* radioHome =       new QRadioButton(tr("Private user"));
